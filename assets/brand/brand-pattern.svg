@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 209.91 179.77">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        fill: none;
+      }
+
+      .cls-3 {
+        fill: #fcc047;
+      }
+
+      .cls-4 {
+        clip-path: url(#clippath);
+      }
+    </style>
+    <clipPath id="clippath">
+      <rect class="cls-2" width="209.91" height="179.77"/>
+    </clipPath>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g class="cls-4">
+      <polygon class="cls-1" points="8.27 14.35 -.02 0 -16.76 0 -8.47 14.35 14.5 54.14 22.88 39.64 8.27 14.35"/>
+      <polygon class="cls-1" points="-20.73 14.35 -29.02 0 -45.77 0 -37.48 14.35 0 79.27 8.37 64.77 -20.73 14.35"/>
+      <polygon class="cls-3" points="113.27 14.35 104.98 0 88.24 0 96.53 14.35 119.5 54.14 127.87 39.64 113.27 14.35"/>
+      <polygon class="cls-3" points="84.26 14.35 75.98 0 59.23 0 67.52 14.35 105 79.27 113.37 64.77 84.26 14.35"/>
+      <polygon class="cls-1" points="218.27 14.35 209.98 0 193.24 0 201.53 14.35 224.5 54.14 232.88 39.64 218.27 14.35"/>
+      <polygon class="cls-1" points="189.27 14.35 180.98 0 164.23 0 172.52 14.35 210 79.27 218.37 64.77 189.27 14.35"/>
+      <polygon class="cls-1" points="60.77 114.85 52.48 100.5 35.74 100.5 44.03 114.85 67 154.64 75.37 140.14 60.77 114.85"/>
+      <polygon class="cls-1" points="31.77 114.85 23.48 100.5 6.73 100.5 15.02 114.85 52.5 179.77 60.87 165.27 31.77 114.85"/>
+      <polygon class="cls-1" points="165.77 114.85 157.48 100.5 140.74 100.5 149.03 114.85 172 154.64 180.38 140.14 165.77 114.85"/>
+      <polygon class="cls-1" points="136.77 114.85 128.48 100.5 111.73 100.5 120.02 114.85 157.5 179.77 165.87 165.27 136.77 114.85"/>
+    </g>
+  </g>
+</svg>

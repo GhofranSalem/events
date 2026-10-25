@@ -1,0 +1,387 @@
+/* Brand pattern files: brand-pattern-wide.svg = complete motif for single decorations;
+   brand-pattern.svg = seamless tile, use only with background-repeat. */
+/* Vision Events — dark theme layer (loaded after style.css and portfolio.css).
+   Replaces the old brand-refresh.css + dark-direction.css pair: only the rules that actually
+   reached the page were kept. */
+:root{--bg:#000000;--panel:#111111;--white:#f6f3ec;--muted:#b9b6ae;--gold:#fcc047;--line:#ffffff1f;color-scheme:dark}
+
+/* Hide the page for a split second while an English visitor's language is applied (no Arabic flash). */
+html.i18n-pending body{visibility:hidden}
+
+/* Background: the original soft stage-black backdrop (drawn by the browser, so it stays smooth at any screen size).
+   It is a single fixed layer that is painted once; the expensive part was the blur-behind panels, which were removed. */
+body{position:relative;background:#000;isolation:isolate} /* pure black backdrop */
+
+/* Decorations may poke out of their boxes; never let them create sideways scrolling. */
+main{overflow-x:clip}
+
+/* Header */
+.header{position:relative;padding-block:20px;background:transparent}
+.brand,.header .brand{background:transparent;padding:12px 0}
+.header .brand img{width:150px}
+.language{color:#f6f3ec}
+.small-cta{border-color:#b18431}
+.eyebrow,.section-label,.service-request{color:#fcc047}
+h1 em{color:#fcc047}
+
+/* Buttons & links */
+.gold{color:#242424}
+.gold:hover{background:#ffd67c;color:#111111}
+.button{transition:background .2s,transform .2s}
+.button:hover{transform:translateY(-3px)}
+.text-link{border-color:#ffffff50}
+a:hover{color:#fcc047}
+
+/* Hero */
+.hero{position:relative}
+.hero-art:before{content:'';position:absolute;inset:-16px 16px 42px -16px;border:1px solid #fcc04740;transform:rotate(-2.5deg);pointer-events:none}
+.hero-art:after{content:'';position:absolute;width:220px;height:142px;inset-inline-start:-34px;top:-28px;background:url('../assets/brand/brand-pattern-wide.svg') center/contain no-repeat;opacity:.32;pointer-events:none;z-index:-1;filter:drop-shadow(0 8px 24px rgba(0,0,0,.5))}
+.image-frame{border-radius:4px;box-shadow:0 28px 70px #0009}
+.stage{filter:saturate(.85)}
+.image-frame .stage{animation:hero-breathe 18s ease-in-out infinite alternate}
+@keyframes hero-breathe{from{transform:scale(1)}to{transform:scale(1.07)}}
+.art-caption{color:#b7b5ae}
+.ribbon{background:#101010;color:#d1cec5;border-block:1px solid #ffffff1a}
+.ribbon i{color:#fcc047}
+
+/* Services */
+.services{background:#0e0e0ee6;position:relative;overflow:hidden}
+.services:before{content:'';position:absolute;width:290px;height:188px;top:38px;right:0;left:auto;bottom:auto;background:url('../assets/brand/brand-pattern-wide.svg') center/contain no-repeat;opacity:.18;pointer-events:none}
+.services>.wrap{position:relative}
+.service-list,details{border-color:#ffffff24}
+.service-number{color:#aba99f}
+.plus{color:#fcc047}
+
+/* Portfolio grid */
+.project-card{transition:transform .3s}
+.project-card:hover{transform:translateY(-5px);color:#f6f3ec}
+.project-card h3{font-family:var(--font-ar);font-weight:500}
+html[lang=en] .project-card h3{font-family:var(--font-en);font-weight:500}
+.project-card small{color:#fcc047;font-weight:500}
+.project-image{background:#141414;border-radius:3px}
+.portfolio-search{color:#cfcbc1}
+.portfolio-search input{background:#161616;border-color:#ffffff2e;color:#f6f3ec}
+.project-filters button{color:#d8d4c9;border-color:#ffffff2e;background:#141414aa;font-weight:500}
+.project-filters button[aria-pressed=true]{color:#111111;background:#fcc047;border-color:#fcc047}
+.portfolio-bottom{color:#b7b5ae}
+
+/* Project detail page */
+.project-intro{position:relative}
+.project-intro:before{content:'';position:absolute;width:180px;height:116px;top:0;inset-inline-end:0;background:url('../assets/brand/brand-pattern-wide.svg') center/contain no-repeat;opacity:.2;pointer-events:none;z-index:-1}
+.project-description,.project-scope li{color:#c3bfb5}
+.project-scope li{border-color:#ffffff25}
+.back-work{color:#fcc047;font-weight:500}
+.project-cover,.detail-gallery button{background:#0f0f0f}
+.project-cta{display:inline-flex}
+.project-footer{color:#b7b5ae;border-color:#ffffff25}
+
+/* Contact */
+.contact{position:relative}
+.contact:before{content:'';position:absolute;inset:auto auto 35px -24px;width:220px;height:142px;background:url('../assets/brand/brand-pattern-wide.svg') center/contain no-repeat;opacity:.22;pointer-events:none;z-index:-1}
+.contact form{background:#121212ee;padding:30px;border:1px solid #ffffff24;border-radius:4px}
+label{color:#dedacf}
+input,select,textarea{color:#f6f3ec;border-color:#ffffff3d}
+select option{background:#151515}
+input::placeholder,textarea::placeholder{color:#9c998f}
+.contact-main span[aria-hidden]{color:#fcc047}
+.copyright{font-family:inherit}
+
+/* Scroll reveal (motion.js) */
+.reveal-ready{opacity:0;transform:translateY(25px);transition:opacity .75s,transform .75s}
+.reveal-ready.is-visible{opacity:1;transform:none}
+
+@media(max-width:700px){
+ .header nav{flex-wrap:wrap;gap:12px}
+ .header .brand{padding:9px 0}
+ .header .brand img{width:125px}
+ .hero-art:after{width:150px;height:97px;inset-inline-start:-14px;top:-18px;opacity:.26}
+ .services:before{width:170px;height:110px;top:22px;opacity:.14}
+ .contact form{padding:22px}
+ .contact:before{width:150px;height:97px;inset:auto auto 12px -10px;opacity:.16}
+ .project-intro:before{width:140px;height:90px;top:0;opacity:.15}
+}
+@media(prefers-reduced-motion:reduce){
+ .reveal-ready{opacity:1;transform:none}
+ .image-frame .stage{animation:none}
+ .button:hover,.project-card:hover{transform:none}
+}
+
+/* Font roles (Thmanyah guide): Display for large headings, Text for reading, Sans for small labels. */
+html[lang] h1,html[lang] h2,html[lang] .ribbon,html[lang] .contact-main,html[lang] .project-intro h1{font-family:var(--font-display)}
+html[lang] h3,html[lang] .project-card h3{font-family:var(--font-display)}
+html[lang] .micro,html[lang] .hero-foot .micro,html[lang] .eyebrow,html[lang] .section-label,html[lang] .copyright,html[lang] .service-number,html[lang] .project-card small,html[lang] .art-tag,html[lang] .art-caption,html[lang] .art-caption>span:last-child,html[lang] .form-note,html[lang] #project-count,html[lang] .lightbox-counter,html[lang] .language{font-family:var(--font-sans)}
+
+/* Typewriter caret for headings (motion.js) */
+.tw-caret{display:inline-block;width:.06em;min-width:2px;height:.85em;margin-inline-start:.06em;background:#fcc047;vertical-align:-.08em;animation:tw-blink .8s steps(1) infinite}
+@keyframes tw-blink{50%{opacity:0}}
+
+/* Frontend Design pass: headline in one colour (gold is kept for things you can press), no tracked-out caps styling */
+h1 em{color:inherit;font-weight:inherit}
+.eyebrow{margin:0;color:#fcc047}
+html[lang=en] .ribbon,html[lang=en] .hero-foot .micro,html[lang=en] .art-tag,.copyright,.micro{letter-spacing:0}
+.services:before{content:none} /* with the numbered labels gone it sat on top of the section text; one less ornament */
+
+/* ---------- Hero: full-bleed photo carousel (hero.js) ---------- */
+.hero{position:relative;display:block;grid-template-columns:none;padding:0;gap:0;min-height:clamp(560px,calc(100svh - 150px),860px);overflow:hidden;isolation:isolate}
+.hero-slides{position:absolute;inset:0;z-index:-2;background:#000000}
+.hero-slide{position:absolute;inset:0;margin:0;opacity:0;transition:opacity 1.4s ease}
+.hero-slide.is-active{opacity:1}
+.hero-slide img{width:100%;height:100%;object-fit:cover;object-position:var(--focus,50% 50%);transform:scale(1.02)}
+.hero-slide.is-active img{will-change:transform;animation:hero-drift calc(var(--hero-duration,6000ms) + 1.4s) ease-out forwards}
+@keyframes hero-drift{from{transform:scale(1.02)}to{transform:scale(1.08)}}
+.hero.is-paused .hero-slide.is-active img{animation-play-state:paused}
+/* Dark wash on the text side so the headline stays readable on any photo; fades into the page at the bottom */
+.hero-scrim{position:absolute;inset:0;z-index:-1;pointer-events:none;background:
+ linear-gradient(to top,#000000 0%,rgba(0,0,0,0) 28%),
+ linear-gradient(to left,rgba(0,0,0,.92) 0%,rgba(0,0,0,.78) 32%,rgba(0,0,0,.35) 62%,rgba(0,0,0,.12) 100%)}
+html[dir=ltr] .hero-scrim{background:
+ linear-gradient(to top,#000000 0%,rgba(0,0,0,0) 28%),
+ linear-gradient(to right,rgba(0,0,0,.92) 0%,rgba(0,0,0,.78) 32%,rgba(0,0,0,.35) 62%,rgba(0,0,0,.12) 100%)}
+.hero-inner{min-height:inherit;display:flex;align-items:center;padding-block:70px 130px}
+.hero-copy{max-width:620px}
+.hero .hero-description{color:#ddd7cb}
+.hero-controls{position:absolute;inset-inline:0;bottom:30px;display:flex;align-items:center;gap:18px}
+.hero-caption{font:500 14px/1.5 var(--font-sans);color:#e9e4d8;border-bottom:1px solid #ffffff4d;padding-block:10px 2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:min(520px,55%)}
+.hero-caption:hover{color:#fcc047}
+.hero-dots{display:flex;gap:6px;margin-inline-start:auto}
+.hero-dot{position:relative;width:44px;height:44px;padding:0;border:0;background:none;cursor:pointer}
+.hero-dot:before,.hero-dot span{content:'';position:absolute;inset-inline-start:0;top:50%;height:2px;margin-top:-1px}
+.hero-dot:before{inset-inline-end:0;background:#ffffff47}
+.hero-dot span{width:0;background:#fcc047}
+.hero-dot.is-done span{width:100%}
+.hero-dot.is-active span{animation:hero-fill var(--hero-duration,6000ms) linear forwards}
+.hero.is-paused .hero-dot.is-active span{animation-play-state:paused}
+@keyframes hero-fill{to{width:100%}}
+.hero-pause{position:relative;flex:none;width:44px;height:44px;border:1px solid #ffffff4d;border-radius:50%;background:rgba(0,0,0,.45);cursor:pointer}
+.hero-pause:hover{border-color:#fcc047}
+/* pause icon = two bars; play icon = triangle (shown when the slideshow is stopped) */
+.hero-pause:before,.hero-pause:after{content:'';position:absolute;top:50%;left:50%}
+.hero-pause.is-playing:before,.hero-pause.is-playing:after{width:3px;height:13px;margin-top:-6.5px;background:#f6f3ec}
+.hero-pause.is-playing:before{margin-left:-5px}
+.hero-pause.is-playing:after{margin-left:2px}
+.hero-pause:not(.is-playing):before{margin:-7px 0 0 -4px;border-style:solid;border-width:7px 0 7px 12px;border-color:transparent transparent transparent #f6f3ec}
+@media(max-width:700px){
+ .hero{min-height:clamp(560px,calc(100svh - 170px),760px)}
+ .hero-scrim,html[dir=ltr] .hero-scrim{background:linear-gradient(to top,#000000 0%,rgba(0,0,0,.86) 38%,rgba(0,0,0,.5) 70%,rgba(0,0,0,.3) 100%)}
+ .hero-inner{align-items:flex-end;padding-block:120px 100px}
+ .hero-controls{bottom:16px;gap:10px}
+ .hero-caption{max-width:46%;font-size:13px}
+ .hero-dot{width:30px}
+}
+@media(prefers-reduced-motion:reduce){.hero-slide{transition:none}.hero-slide.is-active img{animation:none}.hero-dot.is-active span{animation:none;width:100%}}
+
+/* ---------- Team carousel (team.js): one person in front, the next ones behind on each side ---------- */
+.team-head{display:flex;align-items:flex-end;justify-content:space-between;gap:50px;margin-bottom:40px}
+.team-head p{max-width:380px;color:var(--muted);font-size:20px;line-height:1.85}
+.team-stage{position:relative;height:470px;margin-inline:auto;max-width:1000px}
+.member{position:absolute;top:0;left:50%;width:340px;margin:0 0 0 -170px;transition:transform .7s cubic-bezier(.2,.7,.2,1),opacity .7s;cursor:pointer;will-change:transform}
+.member img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;background:#141414;filter:grayscale(1) sepia(.18) contrast(1.05)} /* one shared warm monochrome treatment so photos from different shoots look like a set */
+.member.is-center{cursor:default}
+.member-frame:after{content:'';position:absolute;inset:0;background:#000000;opacity:0;transition:opacity .7s;pointer-events:none}
+.member:not(.is-center) .member-frame:after{opacity:.45} /* dim the people behind with an overlay (cheaper than animating a filter) */
+/* Frame around each photo; the name/title band sits inside it at the bottom and covers the photo's lower edge */
+.member-frame{position:relative;padding:10px;background:#111111;border:1px solid #fcc04759;transition:border-color .7s}
+.member.is-center .member-frame{border-color:#fcc047b3}
+.member-band{position:absolute;inset-inline:10px;bottom:10px;padding:34px 16px 14px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:0;background:linear-gradient(to top,#111111 0%,#111111 72%,rgba(17,17,17,0) 100%)}
+.member-band .member-name{font-size:22px;line-height:1.35}
+.member-band .member-role{font-size:14px}
+.visually-hidden{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.team-caption{text-align:center;margin-top:28px;min-height:64px;display:flex;flex-direction:column;align-items:center;gap:2px;transition:opacity .35s}
+.team-caption.is-changing{opacity:0}
+.member-name{font:500 26px/1.4 var(--font-display)}
+.member-role{font:400 15px/1.6 var(--font-sans);color:var(--muted)}
+.team-controls{display:flex;justify-content:center;gap:12px;margin-top:26px}
+.team-arrow{position:relative;width:44px;height:44px;border:1px solid #ffffff40;border-radius:50%;background:none;cursor:pointer}
+.team-arrow:hover{border-color:#fcc047}
+.team-arrow:before{content:'';position:absolute;top:50%;left:50%;width:9px;height:9px;margin:-5px 0 0 -3px;border-top:2px solid #f6f3ec;border-left:2px solid #f6f3ec;transform:rotate(-45deg)}
+.team-next:before{margin-left:-7px;transform:rotate(135deg)}
+html[dir=rtl] .team-prev:before{margin-left:-7px;transform:rotate(135deg)}
+html[dir=rtl] .team-next:before{margin-left:-3px;transform:rotate(-45deg)}
+html[lang=en] .team-head p{font-size:17px}
+html[lang=en] .member-name{font-size:23px}
+@media(max-width:700px){
+ .team-head{display:block;margin-bottom:28px}.team-head p{margin-top:18px;font-size:18px;max-width:none}
+ .team-stage{height:330px}
+ .member{width:240px;margin-left:-120px}
+ .member-frame{padding:7px}.member-band{inset-inline:7px;bottom:7px;padding:26px 10px 10px}.member-band .member-name{font-size:18px}.member-band .member-role{font-size:13px}
+ .member-name{font-size:21px}.member-role{font-size:14px}
+}
+@media(prefers-reduced-motion:reduce){.member{transition:none}.team-caption{transition:none}}
+.member-band>*{transition:opacity .4s}
+.member:not(.is-center) .member-band>*{opacity:0} /* only the person in front shows a name; the band stays so every card keeps the same frame */
+
+/* Team group photo above the carousel: transparent cut-out on the page background, bottom fades out under the heading */
+.team-hero{position:relative;margin:0 0 70px;text-align:center}
+.team-hero img{display:block;width:100%;height:auto;filter:sepia(.12);-webkit-mask-image:linear-gradient(to bottom,#000 42%,rgba(0,0,0,.35) 72%,transparent 96%);mask-image:linear-gradient(to bottom,#000 42%,rgba(0,0,0,.35) 72%,transparent 96%)} /* photo melts into the page instead of a box */
+.team-hero-text{position:absolute;inset:auto 0 0;z-index:1;padding:0 20px 6px;display:flex;flex-direction:column;align-items:center;gap:12px}
+.team-hero-text p{max-width:640px;color:#ddd7cb;font-size:20px;line-height:1.8}
+html[lang=en] .team-hero-text p{font-size:17px}
+@media(max-width:700px){
+ .team-hero{margin-bottom:44px}
+ .team-hero img{-webkit-mask-image:linear-gradient(to bottom,#000 55%,transparent 98%);mask-image:linear-gradient(to bottom,#000 55%,transparent 98%)}
+ .team-hero-text{position:relative;margin-top:2px;padding:0}
+ .team-hero-text p{font-size:17px}
+}
+
+/* ---------- Sticky header: hides while scrolling down, comes back on the slightest scroll up (nav.js) ---------- */
+html{scroll-padding-top:96px}
+.header{position:sticky;top:0;z-index:50;transition:transform .35s cubic-bezier(.2,.7,.2,1),background-color .35s,padding .35s;
+ box-shadow:0 0 0 100vmax transparent;clip-path:inset(0 -100vmax)} /* the shadow trick paints the bar edge to edge even though the header is inside .wrap */
+.header.is-stuck{background:#000000f2;box-shadow:0 0 0 100vmax #000000f2;padding-block:6px;min-height:0;border-bottom-color:#ffffff14}
+.header.is-hidden{transform:translateY(-100%)}
+.header nav a{position:relative}
+.header nav a[aria-current=true]{color:#fcc047}
+.header nav a[aria-current=true]:after{content:'';position:absolute;inset-inline:0;bottom:-6px;height:1px;background:#fcc047}
+@media(max-width:700px){html{scroll-padding-top:120px}.header.is-stuck{padding-block:2px}}
+@media(prefers-reduced-motion:reduce){.header{transition:none}}
+
+/* ---------- Ribbon: slow marquee of what the company does; brand chevrons as separators ---------- */
+.ribbon{display:block;padding:22px 0;overflow:hidden;white-space:nowrap}
+.ribbon-track{display:flex;width:max-content;align-items:center;animation:ribbon-scroll 60s linear infinite;will-change:transform}
+.ribbon.is-off .ribbon-track{animation-play-state:paused} /* nav.js pauses it while off screen */
+.ribbon-set{display:flex;align-items:center;gap:44px;padding-inline-end:44px}
+.ribbon-set span{font-size:clamp(24px,2.6vw,40px);line-height:1.2;color:#1c1710}
+.ribbon-set span:nth-child(4n+3){color:#fffaf0} /* every other word in gold (outlined Arabic shows the letter joins, so solid colour instead) */
+.ribbon-mark{flex:none;position:relative;width:26px;height:22px}
+.ribbon-mark:before,.ribbon-mark:after{content:'';position:absolute;top:0;width:7px;height:100%;background:#1c1710;transform:skewX(30deg)}
+.ribbon-mark:before{left:4px}.ribbon-mark:after{left:15px;opacity:.55}
+html[dir=rtl] .ribbon-mark:before,html[dir=rtl] .ribbon-mark:after{transform:skewX(-30deg)}
+@keyframes ribbon-scroll{to{transform:translateX(-50%)}}
+html[dir=rtl] .ribbon-track{animation-name:ribbon-scroll-rtl}
+@keyframes ribbon-scroll-rtl{to{transform:translateX(50%)}}
+.ribbon:hover .ribbon-track{animation-play-state:paused}
+html[lang=en] .ribbon-set span{letter-spacing:.5px}
+@media(max-width:700px){.ribbon{padding:16px 0}.ribbon-set{gap:28px;padding-inline-end:28px}.ribbon-track{animation-duration:45s}}
+@media(prefers-reduced-motion:reduce){.ribbon-track{animation:none}}
+
+/* ---------- Team: brand chevrons behind the group, a stage spotlight over the carousel ---------- */
+.team{position:relative}
+.team-hero:before{content:'';position:absolute;inset:-40px -6% 30%;z-index:-1;pointer-events:none;
+ background:url('../assets/brand/brand-pattern.svg') center top/150px auto repeat;opacity:.09;
+ -webkit-mask-image:radial-gradient(ellipse 60% 70% at 50% 35%,#000 20%,transparent 75%);mask-image:radial-gradient(ellipse 60% 70% at 50% 35%,#000 20%,transparent 75%)}
+.team-stage{isolation:isolate}
+.team-stage:before{content:'';position:absolute;z-index:-1;left:50%;top:-90px;width:min(760px,120%);height:calc(100% + 150px);transform:translateX(-50%);pointer-events:none;
+ background:radial-gradient(ellipse 38% 55% at 50% 0%,rgba(252,192,71,.16),rgba(252,192,71,.05) 55%,transparent 75%)} /* spotlight from above */
+.team-stage:after{content:'';position:absolute;z-index:-1;left:50%;bottom:-26px;width:min(620px,90%);height:46px;transform:translateX(-50%);border-radius:50%;
+ background:radial-gradient(ellipse at center,rgba(252,192,71,.18),transparent 70%)} /* light pool on the floor */
+
+/* ---------- Services: list + a photo that follows the open service ---------- */
+.services-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:56px;align-items:start}
+.service-visual{position:sticky;top:110px;margin:0;aspect-ratio:4/3;overflow:hidden;border-radius:2px;background:#101010;border:1px solid #fcc04733}
+.service-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.03);transition:opacity .6s ease,transform 1.2s ease}
+.service-visual img.is-active{opacity:1;transform:none}
+.services-grid .service-body{display:block;padding-inline:0}
+.services-grid .service-request{margin-top:18px}
+summary{transition:color .2s}
+summary:hover h3{color:#fcc047}
+@media(max-width:900px){
+ .services-grid{grid-template-columns:1fr;gap:28px}
+ .service-visual{position:relative;top:auto;order:-1;aspect-ratio:16/9}
+}
+@media(prefers-reduced-motion:reduce){.service-visual img{transition:none;transform:none}}
+
+/* ---------- Light "daylight" sections: About, Services, Team sit on warm sand; the page fades between night and day ---------- */
+:root{--sand:#f2ece1;--sand-2:#e8dfcf;--ink:#111111;--ink-2:#5c5243;--gold-ink:#8a5c06}
+.ribbon{background:#fcc047;border:0;color:#1c1710} /* the ribbon becomes a bright gold band between the hero and the light sections */
+.surface-light{position:relative;isolation:isolate;color:var(--ink);--white:var(--ink);--muted:var(--ink-2);--line:#1c171022}
+section.surface-light:before{content:'';position:absolute;z-index:-1;top:0;bottom:0;left:calc(50% - 50vw);right:calc(50% - 50vw);width:auto;height:auto;opacity:1;filter:none;background:var(--sand);pointer-events:none}
+/* light and dark sections meet on a clean edge (no muddy grey fade) */
+.surface-light h2,.surface-light h3{color:var(--ink)}
+.surface-light p,.surface-light .about-detail p,.surface-light .section-heading p,.surface-light .service-body p{color:var(--ink-2)}
+.surface-light .text-link{color:var(--ink);border-color:#1c171066}
+.surface-light .text-link:hover,.surface-light a:hover{color:var(--gold-ink)}
+.services.surface-light{background:none;border:0}
+.surface-light .service-list,.surface-light details{border-color:#1c171026}
+.surface-light .plus,.surface-light .service-request{color:var(--gold-ink)}
+.surface-light .service-request{border-color:#8a5c0680}
+.surface-light summary:hover h3{color:var(--gold-ink)}
+.surface-light .service-visual{background:var(--sand-2);border-color:#8a5c0640;box-shadow:0 30px 60px -30px #1c171066}
+.surface-light :focus-visible{outline-color:var(--gold-ink)}
+/* Team on sand: colour portraits on a gold brand-chevron backdrop instead of grey frames */
+.surface-light .team-hero-text p{color:var(--ink-2)}
+.surface-light .team-hero:before{opacity:.18;filter:sepia(1) saturate(3) hue-rotate(-10deg) brightness(.7)}
+.surface-light .team-stage:before{background:radial-gradient(ellipse 38% 55% at 50% 0%,rgba(252,192,71,.35),rgba(252,192,71,.08) 55%,transparent 75%)}
+.surface-light .team-stage:after{background:radial-gradient(ellipse at center,rgba(138,92,6,.25),transparent 70%)}
+.surface-light .member img{filter:none;background:transparent}
+.surface-light .member-frame{padding:0;border:0;border-radius:14px;background:var(--sand-2);overflow:hidden;transform:translateZ(0)} /* no frame: the card is the photo itself */
+.surface-light .member.is-center .member-frame{box-shadow:0 30px 60px -28px #11111180}
+.surface-light .member-band{inset-inline:0;bottom:0}
+/* brand chevrons behind each person; on hover they slide apart at two speeds (parallax) and the person lifts a little */
+.surface-light .member-frame:before{content:'';position:absolute;inset:0;z-index:0;pointer-events:none;
+ background:linear-gradient(115deg,transparent 0 28%,#fcc047 28% 44%,transparent 44%),linear-gradient(115deg,transparent 0 52%,#e2a92e 52% 68%,transparent 68%);
+ background-repeat:no-repeat;background-size:100% 100%;background-position:0 0,0 0;transition:background-position .9s cubic-bezier(.2,.7,.2,1)}
+.surface-light .member-frame img{transition:transform .9s cubic-bezier(.2,.7,.2,1);transform-origin:50% 100%}
+@media(hover:hover){
+ .surface-light .member:hover .member-frame:before{background-position:-70px 0,45px 0}
+ .surface-light .member:hover .member-frame img{transform:scale(1.04)}
+}
+@media(prefers-reduced-motion:reduce){.surface-light .member-frame:before,.surface-light .member-frame img{transition:none}}
+.surface-light .member-frame img{position:relative;z-index:1}
+.surface-light .member-band{z-index:2;padding-top:90px;background:linear-gradient(to top,rgba(17,17,17,.78) 0%,rgba(17,17,17,.6) 38%,rgba(17,17,17,.25) 70%,rgba(17,17,17,0) 100%)} /* lighter, longer fade so the photo shows through */
+.surface-light .member-band>*{text-shadow:0 1px 12px rgba(0,0,0,.45)}
+.surface-light .member-band .member-name{color:#fffaf0}
+.surface-light .member-band .member-role{color:#fcc047}
+.surface-light .member-frame:after{background:var(--sand)}
+.surface-light .team-arrow{border-color:#1c171040}
+.surface-light .team-arrow:before{border-color:var(--ink)}
+.surface-light .team-arrow:hover{border-color:var(--gold-ink)}
+@media(max-width:700px){.surface-light .member-frame{border-radius:10px}}
+
+/* ---------- Clients wall (black) ---------- */
+.clients{padding-block:clamp(80px,9vw,140px)}
+.client-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));row-gap:clamp(18px,2.4vw,34px)}
+.client{position:relative;display:flex;align-items:center;justify-content:center;min-height:clamp(120px,10vw,150px);padding:10px 18px}
+.client:after{content:'';position:absolute;inset-block:18%;inset-inline-end:0;width:1px;background:#ffffff26;transform-origin:50% 0}
+.client:nth-child(6n):after{content:none}
+.client img{display:block;width:var(--w);max-width:100%;height:auto;opacity:.78;transition:opacity .35s,transform .35s}
+@media(hover:hover){.client:hover img{opacity:1;transform:scale(1.06)}}
+/* reveal: the logo rises out of a mask, the divider draws down */
+.client-grid.will-reveal .client img{clip-path:inset(100% 0 0 0);transform:translateY(38%);opacity:0;filter:blur(6px);
+ transition:clip-path .9s cubic-bezier(.2,.7,.2,1) var(--d,0ms),transform .9s cubic-bezier(.2,.7,.2,1) var(--d,0ms),opacity .6s var(--d,0ms),filter .9s var(--d,0ms)}
+.client-grid.will-reveal .client:after{transform:scaleY(0);transition:transform 1s cubic-bezier(.2,.7,.2,1) var(--d,0ms)}
+.client-grid.will-reveal.is-in .client img{clip-path:inset(0 0 0 0);transform:none;opacity:.78;filter:none}
+.client-grid.will-reveal.is-in .client:after{transform:scaleY(1)}
+@media(hover:hover){.client-grid.is-in .client:hover img{opacity:1;transform:scale(1.06);transition:opacity .35s,transform .35s}}
+@media(max-width:1000px){
+ .client-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .client:nth-child(6n):after{content:''}.client:nth-child(3n):after{content:none}
+}
+@media(max-width:600px){
+ .client-grid{row-gap:6px}
+ .client{min-height:84px;padding:8px 10px}
+ .client img{width:calc(var(--w)*.62)}
+}
+
+/* ---------- Front-end review fixes ---------- */
+#clients{padding-top:clamp(24px,3vw,48px)} /* continues the black of "our work", so no second full gap */
+#about{padding-bottom:clamp(24px,3vw,48px)} /* about and services share the same sand */
+#more-projects{white-space:nowrap}
+.language{min-width:44px;justify-content:center}
+@media(max-width:1000px){.contact:before{content:none}} /* the chevrons fell under the form on small screens */
+
+/* ---------- Project cards: rounded cover with a brand chevron that slides in on hover ---------- */
+.project-image{border-radius:16px;isolation:isolate;box-shadow:inset 0 0 0 1px #ffffff14}
+.project-image img{position:relative;z-index:-1;transition:transform .7s cubic-bezier(.2,.7,.2,1),filter .7s}
+.project-image:after{content:'';position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+ background:linear-gradient(to top,rgba(0,0,0,.55),rgba(0,0,0,0) 45%);opacity:0;transition:opacity .5s}
+/* two skewed gold bars (the emblem's chevron) parked outside the bottom corner */
+.project-mark{position:absolute;bottom:18px;inset-inline-start:18px;width:34px;height:26px;z-index:1;pointer-events:none;
+ opacity:0;transform:translateX(-24px);transition:transform .6s cubic-bezier(.2,.7,.2,1),opacity .4s}
+html[dir=rtl] .project-mark{transform:translateX(24px)}
+.project-mark:before,.project-mark:after{content:'';position:absolute;top:0;width:9px;height:100%;background:#fcc047;transform:skewX(30deg)}
+.project-mark:before{inset-inline-start:4px}.project-mark:after{inset-inline-start:18px;opacity:.6}
+html[dir=rtl] .project-mark:before,html[dir=rtl] .project-mark:after{transform:skewX(-30deg)}
+@media(hover:hover){
+ .project-card:hover .project-image:after,.project-card:focus-visible .project-image:after{opacity:1}
+ html[dir] .project-card:hover .project-mark,html[dir] .project-card:focus-visible .project-mark{opacity:1;transform:none}
+ .project-card:hover h3{color:#fcc047}
+}
+.project-card h3{transition:color .3s}
+.project-card:focus-visible{outline-offset:8px;border-radius:18px}
+/* cards opened by "View all" rise in one after another */
+.project-card.is-new{animation:project-in .6s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(min(var(--i,0),9) * 60ms)}
+@keyframes project-in{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+.portfolio-bottom{flex-direction:row-reverse}
+#more-projects{min-width:200px}
+@media(max-width:700px){.project-image{border-radius:12px}.portfolio-bottom{flex-direction:column-reverse;align-items:stretch;gap:14px;text-align:center}}
+@media(prefers-reduced-motion:reduce){.project-card.is-new{animation:none}.project-mark,.project-image:after{transition:none}}
