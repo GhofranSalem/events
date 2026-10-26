@@ -385,3 +385,6 @@ html[dir=rtl] .project-mark:before,html[dir=rtl] .project-mark:after{transform:s
 #more-projects{min-width:200px}
 @media(max-width:700px){.project-image{border-radius:12px}.portfolio-bottom{flex-direction:column-reverse;align-items:stretch;gap:14px;text-align:center}}
 @media(prefers-reduced-motion:reduce){.project-card.is-new{animation:none}.project-mark,.project-image:after{transition:none}}
+
+/* sections focused by in-page links: no outline box around the whole section */
+section[tabindex="-1"]:focus,main[tabindex="-1"]:focus{outline:none}
