@@ -6,7 +6,7 @@ window.VISION_TEAM = [
   { name: { ar: "محمد شاهد", en: "Mohamed Shahed" }, role: { ar: "رئيس قسم المحاسبة", en: "Head of Accounting" }, photo: "assets/team/mohamed-shahed.webp", photoSmall: "assets/team/mohamed-shahed-sm.webp" },
   { name: { ar: "محمود كمال", en: "Mahmoud Kamal" }, role: { ar: "مدير عمليات أول", en: "Senior Operations Manager" }, photo: "assets/team/mahmoud-kamal.webp", photoSmall: "assets/team/mahmoud-kamal-sm.webp" },
   { name: { ar: "عبدالقادر غازي", en: "Abdulkader Ghazi" }, role: { ar: "مدير مشاريع أول", en: "Senior Project Manager" }, photo: "assets/team/abdulkader-ghazi.webp", photoSmall: "assets/team/abdulkader-ghazi-sm.webp" },
-  { name: { ar: "رشا القرشي", en: "Rasha Al Qurashi" }, role: { ar: "مديرة مشاريع أولى", en: "Senior Project Manager" }, photo: "assets/team/rasha-alqurashi.webp", photoSmall: "assets/team/rasha-alqurashi-sm.webp" },
+  { name: { ar: "رشا القرشي", en: "Rasha Al Qurashi" }, role: { ar: "مدير إدارة المشاريع", en: "Project Management Director" }, photo: "assets/team/rasha-alqurashi.webp", photoSmall: "assets/team/rasha-alqurashi-sm.webp" },
   { name: { ar: "عمار خزعل", en: "Ammar Khazaal" }, role: { ar: "مدير فعاليات", en: "Event Manager" }, photo: "assets/team/ammar-khazaal.webp", photoSmall: "assets/team/ammar-khazaal-sm.webp" },
   { name: { ar: "محمد أركدان", en: "Mohamed Arkadan" }, role: { ar: "مدير الصوت والإضاءة والمرئيات", en: "AVL Manager" }, photo: "assets/team/mohamed-arkadan.webp", photoSmall: "assets/team/mohamed-arkadan-sm.webp" },
   { name: { ar: "عبدالملك السنيد", en: "Abdulmalik Al Sneed" }, role: { ar: "مشرف الخدمات اللوجستية", en: "Logistics Supervisor" }, photo: "assets/team/abdulmalik-alsneed.webp", photoSmall: "assets/team/abdulmalik-alsneed-sm.webp" },
