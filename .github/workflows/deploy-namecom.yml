@@ -38,6 +38,7 @@ jobs:
             **/.git*/**
             .github/**
             README.md
+            CLAUDE.md
 
       - name: FTP details not set yet
         if: env.FTP_SERVER == ''

@@ -16,7 +16,7 @@ DirectoryIndex index.html
 </IfModule>
 
 # Never serve hidden files (.htaccess, the deploy sync file ...), backups, archives, logs or config leftovers.
-<FilesMatch "(^\.|^(error_log|wp-config.*)$|\.(zip|tar|gz|sql|bak|old|log|ini|sh|php)$)">
+<FilesMatch "(^\.|^(error_log|wp-config.*)$|\.(zip|tar|gz|sql|bak|old|log|ini|sh|php|md|yml)$)">
   Require all denied
 </FilesMatch>
 
