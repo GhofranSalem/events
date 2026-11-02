@@ -47,50 +47,6 @@ window.VISION_PROJECTS = [
     "thumb": "assets/projects/project-01-01-thumb.webp"
   },
   {
-    "id": "project-02",
-    "title": {
-      "ar": "فعالية وجناح شركة المراعي",
-      "en": "Almarai Corporate Event & Exhibition Pavilion"
-    },
-    "description": {
-      "ar": "تصميم وتنفيذ جناح ومنصة فعالية شركة المراعي بهوية بصرية متكاملة تعكس مكانة العلامة التجارية، مع تجهيز منصات العرض التفاعلية والمسرح والأنظمة السمعية والبصرية.",
-      "en": "End-to-end design, fabrication, and technical production for Almarai's corporate event and exhibition pavilion, featuring interactive display zones, custom stage design, and integrated audiovisual systems."
-    },
-    "category": "exhibitions",
-    "images": [
-      "assets/projects/project-02-01.webp",
-      "assets/projects/project-02-02.webp",
-      "assets/projects/project-02-03.webp",
-      "assets/projects/project-02-04.webp",
-      "assets/projects/project-02-05.webp",
-      "assets/projects/project-02-06.webp"
-    ],
-    "services": [
-      {
-        "ar": "التصميم ثلاثي الأبعاد وتصنيع الجناح ومنصات العرض",
-        "en": "3D Design, Custom Stand Fabrication & Build-up"
-      },
-      {
-        "ar": "تجهيز المسرح وشاشات LED عالية الدقة",
-        "en": "Stage Setup & High-Resolution LED Screens"
-      },
-      {
-        "ar": "أنظمة الإضاءة الاحترافية والصوتيات",
-        "en": "Professional Lighting & Audio Systems"
-      },
-      {
-        "ar": "تطبيق الهوية البصرية والجرافيكس والتشطيبات",
-        "en": "Branding, Graphics & Finishing"
-      },
-      {
-        "ar": "الإدارة الميدانية والتشغيل وإنتاج الفيديو التوثيقي",
-        "en": "On-site Operations & Video Production"
-      }
-    ],
-    "videos": [],
-    "thumb": "assets/projects/project-02-01-thumb.webp"
-  },
-  {
     "id": "project-03",
     "title": {
       "ar": "جناح وفعالية مجموعة روشن",
