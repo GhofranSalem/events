@@ -1,0 +1,44 @@
+# Vision Events website (static HTML/CSS/JS) — Apache settings for the Name.com hosting.
+# Uploaded automatically with the site; edit it here in the repository, not on the server.
+
+Options -Indexes
+DirectoryIndex index.html
+
+# Always use HTTPS and the bare domain (www.vevents.sa -> vevents.sa).
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  # (the host's nginx front end may talk to Apache over plain HTTP, so also trust X-Forwarded-Proto)
+  RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP:X-Forwarded-Proto} !=https
+  RewriteRule ^ https://vevents.sa%{REQUEST_URI} [L,R=301]
+  RewriteCond %{HTTP_HOST} ^www\. [NC]
+  RewriteRule ^ https://vevents.sa%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# Never serve hidden files (.htaccess, the deploy sync file ...), backups, archives, logs or config leftovers.
+<FilesMatch "(^\.|^(error_log|wp-config.*)$|\.(zip|tar|gz|sql|bak|old|log|ini|sh|php)$)">
+  Require all denied
+</FilesMatch>
+
+<IfModule mod_headers.c>
+  Header always set Strict-Transport-Security "max-age=31536000"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+  # Scripts, fonts and images only from this site; videos only from YouTube (no-cookie) and Vimeo.
+  # style-src needs 'unsafe-inline' for the small per-logo size attributes in the clients wall.
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; media-src 'self'; frame-src https://www.youtube-nocookie.com https://player.vimeo.com; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; upgrade-insecure-requests"
+
+  # Caching: pages and code are checked on every visit (file names never change);
+  # images and fonts are kept for a week / a year.
+  <FilesMatch "\.(html|css|js)$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+  <FilesMatch "\.(webp|jpg|jpeg|png|svg|ico)$">
+    Header set Cache-Control "public, max-age=604800"
+  </FilesMatch>
+  <FilesMatch "\.woff2$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+</IfModule>
