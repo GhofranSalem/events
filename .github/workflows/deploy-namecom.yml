@@ -1,0 +1,43 @@
+# Uploads the website to the Name.com hosting (public_html) over FTP every time main changes.
+# The FTP details live in this repository's secrets (Settings > Secrets and variables > Actions):
+#   FTP_SERVER    the FTP host from the Name.com hosting panel
+#   FTP_USERNAME  the FTP / cPanel user
+#   FTP_PASSWORD  its password
+# Until those three secrets exist, the upload step is skipped instead of failing.
+name: Deploy to Name.com
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: # lets you run it by hand from the Actions tab
+
+concurrency:
+  group: deploy-namecom
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      FTP_SERVER: ${{ secrets.FTP_SERVER }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Upload site to public_html
+        if: env.FTP_SERVER != ''
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          server-dir: public_html/
+          exclude: |
+            **/.git*
+            **/.git*/**
+            .github/**
+            README.md
+
+      - name: FTP details not set yet
+        if: env.FTP_SERVER == ''
+        run: echo "Add FTP_SERVER, FTP_USERNAME and FTP_PASSWORD in Settings > Secrets and variables > Actions, then run this workflow again."
