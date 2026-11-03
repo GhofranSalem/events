@@ -1,0 +1,14 @@
+# Dashboard folder (vevents.sa/admin).
+# The site-wide rules deny every .php file; here only the API is allowed. config.php stays denied.
+<Files "api.php">
+  Require all granted
+</Files>
+
+<IfModule mod_headers.c>
+  Header always set X-Robots-Tag "noindex, nofollow"
+  # Same rules as the site, plus blob: for the photos you add before publishing and for the preview.
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' blob: 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; media-src 'self' blob:; frame-src 'self' blob: about: https://www.youtube-nocookie.com https://player.vimeo.com; connect-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'"
+  Header always set Cache-Control "no-store"
+</IfModule>
+
+AddType application/wasm .wasm

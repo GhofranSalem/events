@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>لوحة التحكم | رؤية الفعاليات</title>
+<link rel="icon" href="../assets/brand/emblem.svg" type="image/svg+xml">
+<link rel="stylesheet" href="admin.css">
+<script src="admin.js" type="module"></script>
+</head>
+<body>
+
+<section id="login-view" class="login" hidden>
+ <form id="login-form" class="login-card" autocomplete="on">
+  <img src="../assets/brand/logo-web.png" width="166" height="61" alt="رؤية الفعاليات">
+  <h1>لوحة التحكم</h1>
+  <label>اسم المستخدم<input id="login-user" name="username" autocomplete="username" required dir="ltr"></label>
+  <label>كلمة المرور<input id="login-pass" name="password" type="password" autocomplete="current-password" required dir="ltr"></label>
+  <button class="btn gold" type="submit">دخول</button>
+  <p id="login-error" class="error" role="alert"></p>
+ </form>
+</section>
+
+<div id="app" hidden>
+ <header class="top">
+  <a class="top-brand" href="../" target="_blank" rel="noopener" title="فتح الموقع"><img src="../assets/brand/emblem.svg" width="34" height="30" alt=""><span>لوحة التحكم</span></a>
+  <nav class="tabs" id="tabs" role="tablist"></nav>
+  <div class="top-actions">
+   <span id="dirty-badge" class="dirty" hidden></span>
+   <button id="btn-discard" class="btn ghost" type="button" hidden>إلغاء التعديلات</button>
+   <button id="btn-preview" class="btn ghost" type="button">معاينة</button>
+   <button id="btn-publish" class="btn gold" type="button" disabled>نشر</button>
+   <span class="who"><span id="who"></span><button id="btn-logout" class="link" type="button">خروج</button></span>
+  </div>
+ </header>
+ <main id="view" class="view"></main>
+</div>
+
+<div id="loading" class="loading"><span class="spinner"></span><span id="loading-text">جاري التحميل…</span></div>
+
+<div id="preview" class="overlay" hidden>
+ <div class="preview-bar">
+  <strong>معاينة — دي النسخة قبل النشر</strong>
+  <div class="seg"><button type="button" data-w="1440" class="on">كمبيوتر</button><button type="button" data-w="390">موبايل</button></div>
+  <button id="preview-close" class="btn ghost" type="button">رجوع للتعديل</button>
+  <button id="preview-publish" class="btn gold" type="button">نشر</button>
+ </div>
+ <div class="preview-stage"><iframe id="preview-frame" title="معاينة الموقع"></iframe></div>
+</div>
+
+<div id="dialog" class="overlay center" hidden><div class="dialog" role="dialog" aria-modal="true"><div id="dialog-body"></div></div></div>
+
+<div id="toast" class="toast" role="status" hidden></div>
+</body>
+</html>

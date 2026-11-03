@@ -24,6 +24,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # Dashboard (vevents.sa/admin): users and the GitHub token come from the
+      # ADMIN_USERS and ADMIN_GITHUB_TOKEN secrets and are written to admin/config.php on the server only.
+      - name: Write dashboard settings
+        if: env.FTP_SERVER != ''
+        env:
+          ADMIN_USERS: ${{ secrets.ADMIN_USERS }}
+          ADMIN_GITHUB_TOKEN: ${{ secrets.ADMIN_GITHUB_TOKEN }}
+        run: php .github/scripts/admin-config.php > admin/config.php
+
       - name: Upload site to the vevents.sa folder
         if: env.FTP_SERVER != ''
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5

@@ -50,7 +50,27 @@ js/app.js             WhatsApp brief form + services accordion photo swap
 js/motion.js          typewriter on the main h1 only
 js/nav.js             sticky header, active nav link, in-page links without #hash in the URL
 assets/brand|fonts|hero|services|team|clients|projects
+admin/                dashboard (vevents.sa/admin) — see "Dashboard" below
 ```
+
+## Dashboard (vevents.sa/admin)
+
+- For him and colleagues: edit texts (every data-ar/data-en in index.html, page title/description), hero photos + typewriter h1,
+  team, projects (images, services, videos, hidden, order), client logos, services photos, WhatsApp/email/map link.
+- `admin/index.html|admin.css|admin.js` (no build) + `admin/api.php`. The browser loads the files from GitHub through the API,
+  edits them in memory (index.html via DOMParser, data files as JSON), shows a **preview** (srcdoc iframe with the exact new files,
+  new photos as blob: URLs), then **publishes one commit** to `main` (Git Data API) → the normal FTP deploy puts it live.
+  So GitHub stays the source of truth; never edit files on the server.
+- Photos are converted in the browser to WebP at the site's sizes (hero 2400/1000w, team 1000×1250/500×625, projects 1600w + 720w thumb,
+  services 1200×900/640×480, logos ≤360×200 with `--w` = min(190, 107.2·√ratio)). New files always get a new name (images are cached a week).
+  Removed/replaced images are deleted in the same commit if nothing else uses them. Safari fallback encoder: `admin/vendor/webp_enc.*` (@jsquash/webp 1.5.0, Apache-2.0).
+- The API can only write: index.html, project.html, js/team-data.js, js/projects-data.js, js/app.js, js/portfolio.js and `assets/(hero|team|projects|clients|services)/*.webp`.
+  It refuses to publish if `main` moved since the page loaded (conflict).
+- Logins + token: GitHub secrets `ADMIN_USERS` (one `username:password` per line) and `ADMIN_GITHUB_TOKEN`
+  (fine-grained, only this repo, Contents read/write + Actions read). The deploy workflow writes `admin/config.php` (password hashes + token)
+  with `.github/scripts/admin-config.php`; it is gitignored and denied by `.htaccess`. Changing users = edit the secret, then re-run the deploy.
+- Keep the generated formats stable when editing by hand: `js/team-data.js` = one JSON object per line; `js/projects-data.js` = `JSON.stringify(…, null, 2)`;
+  index.html as the browser serializes it (boolean attributes without `=""`, `&amp;` in attributes). Otherwise the dashboard's first publish rewrites them.
 
 ## Design decisions (agreed with the owner)
 
