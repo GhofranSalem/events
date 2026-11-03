@@ -69,6 +69,7 @@ if ($action === 'logout') {
 $user = (string)($_SESSION['user'] ?? '');
 if ($user === '' || !isset($users[$user]) || ($_SESSION['stamp'] ?? '') !== userStamp($users, $user) || time() - (int)($_SESSION['seen'] ?? 0) > 28800) {
     $_SESSION = [];
+    if ($action === 'session') out(['user' => null]); // "am I logged in?" is a normal question, not an error
     fail('login_required', 401);
 }
 $_SESSION['seen'] = time();

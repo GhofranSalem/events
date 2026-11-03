@@ -74,6 +74,6 @@ document.querySelectorAll('#preview .seg button').forEach(b => b.addEventListene
 addEventListener('keydown', e => { if (e.key === 'Escape' && !$('#preview').hidden) closePreview(); });
 
 (async () => {
-  try { await api('session'); await load(); }
+  try { (await api('session')).user ? await load() : showLogin(''); }
   catch (e) { showLogin(e.code === 'login_required' ? '' : e.message); }
 })();
