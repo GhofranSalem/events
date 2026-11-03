@@ -174,3 +174,7 @@ a.btn{text-decoration:none}
  .tabs button{white-space:nowrap}
  .top-actions{width:100%}
 }
+.links-box{border-top:1px solid var(--line);margin-top:16px;padding-top:14px}
+.links-box h3{font-size:16px;margin-bottom:4px}
+.link-item{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px;display:grid;gap:8px}
+.link-item .li.one{grid-template-columns:1fr auto}

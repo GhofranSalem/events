@@ -204,7 +204,8 @@ function ghOk(string $method, string $path, ?array $body = null): array {
 const TEXT_FILES = ['index.html', 'project.html', 'js/team-data.js', 'js/projects-data.js', 'js/app.js', 'js/portfolio.js'];
 function allowedPath(string $p): bool {
     return in_array($p, TEXT_FILES, true)
-        || (bool)preg_match('#^assets/(hero|team|projects|clients|services)/[a-z0-9][a-z0-9-]{0,80}\.webp$#', $p);
+        || (bool)preg_match('#^assets/(hero|team|projects|clients|services)/[a-z0-9][a-z0-9-]{0,80}\.webp$#', $p)
+        || (bool)preg_match('#^assets/files/[a-z0-9][a-z0-9-]{0,80}\.pdf$#', $p);
 }
 
 if ($action === 'load') {
@@ -215,14 +216,21 @@ if ($action === 'load') {
         $c = ghOk('GET', "/repos/$repo/contents/" . $p . '?ref=' . $head);
         $files[$p] = base64_decode(str_replace("\n", '', (string)($c['content'] ?? '')));
     }
-    out(['head' => $head, 'files' => $files, 'user' => $user, 'admin' => $isAdmin]);
+    // biggest file this server accepts in one request (the file travels as base64 inside JSON: ~1.37x)
+    $bytes = function (string $v): int { $v = trim($v); $n = (int)$v; $u = strtolower(substr($v, -1)); return $u === 'g' ? $n << 30 : ($u === 'm' ? $n << 20 : ($u === 'k' ? $n << 10 : $n)); };
+    $limits = array_filter([$bytes((string)ini_get('post_max_size')), (int)($bytes((string)ini_get('memory_limit')) / 4)], fn($x) => $x > 0);
+    $maxUpload = $limits ? (int)(min($limits) / 1.4) : 8 << 20;
+    out(['head' => $head, 'files' => $files, 'user' => $user, 'admin' => $isAdmin, 'maxUpload' => min($maxUpload, 60 << 20)]);
 }
 
 if ($action === 'blob') {
     $b64 = (string)($in['content'] ?? '');
-    if ($b64 === '' || strlen($b64) > 14000000) fail('bad_image', 400);
+    if ($b64 === '' || strlen($b64) > 90000000) fail('bad_image', 400);
     $bin = base64_decode($b64, true);
-    if ($bin === false || substr($bin, 0, 4) !== 'RIFF' || substr($bin, 8, 4) !== 'WEBP') fail('bad_image', 400);
+    $isWebp = $bin !== false && substr($bin, 0, 4) === 'RIFF' && substr($bin, 8, 4) === 'WEBP';
+    $isPdf = $bin !== false && substr($bin, 0, 5) === '%PDF-';
+    if (!$isWebp && !$isPdf) fail('bad_image', 400);
+    unset($bin);
     $blob = ghOk('POST', "/repos/$repo/git/blobs", ['content' => $b64, 'encoding' => 'base64']);
     out(['sha' => $blob['sha'] ?? '']);
 }

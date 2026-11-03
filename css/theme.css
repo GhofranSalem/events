@@ -378,3 +378,9 @@ html[dir=rtl] .project-mark:before,html[dir=rtl] .project-mark:after{transform:s
 
 /* sections focused by in-page links: no outline box around the whole section */
 section[tabindex="-1"]:focus,main[tabindex="-1"]:focus{outline:none}
+/* Download links under a service (company profile, equipment catalogue …), added from the dashboard. */
+.service-download{display:inline-flex;align-items:center;gap:8px;margin-top:18px;margin-inline-start:28px;padding-bottom:5px;border-bottom:1px solid #8a5c0680;color:var(--gold-ink);font-size:17px;font-weight:500;white-space:nowrap}
+.service-download::after{content:'↓';font-family:'Vision Arrows',sans-serif;font-size:.95em}
+.service-download:hover{color:var(--ink)}
+html[lang=en] .service-download{font-size:14px}
+@media(max-width:700px){.service-download{margin-inline-start:20px}}
