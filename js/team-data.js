@@ -8,7 +8,7 @@ window.VISION_TEAM = [
   { name: { ar: "عبدالقادر غازي", en: "Abdulkader Ghazi" }, role: { ar: "مدير مشاريع أول", en: "Senior Project Manager" }, photo: "assets/team/abdulkader-ghazi.webp", photoSmall: "assets/team/abdulkader-ghazi-sm.webp" },
   { name: { ar: "رشا القرشي", en: "Rasha Al Qurashi" }, role: { ar: "مدير إدارة المشاريع", en: "Project Management Director" }, photo: "assets/team/rasha-alqurashi.webp", photoSmall: "assets/team/rasha-alqurashi-sm.webp" },
   { name: { ar: "عمار خزعل", en: "Ammar Khazaal" }, role: { ar: "مدير فعاليات", en: "Event Manager" }, photo: "assets/team/ammar-khazaal.webp", photoSmall: "assets/team/ammar-khazaal-sm.webp" },
-  { name: { ar: "محمد أركدان", en: "Mohamed Arkadan" }, role: { ar: "مدير الصوت والإضاءة والمرئيات", en: "AVL Manager" }, photo: "assets/team/mohamed-arkadan.webp", photoSmall: "assets/team/mohamed-arkadan-sm.webp" },
+  { name: { ar: "محمد أرقه دان", en: "Mohamed Arkadan" }, role: { ar: "مدير الصوت والإضاءة والمرئيات", en: "AVL Manager" }, photo: "assets/team/mohamed-arkadan.webp", photoSmall: "assets/team/mohamed-arkadan-sm.webp" },
   { name: { ar: "عبدالملك السنيد", en: "Abdulmalik Al Sneed" }, role: { ar: "مشرف الخدمات اللوجستية", en: "Logistics Supervisor" }, photo: "assets/team/abdulmalik-alsneed.webp", photoSmall: "assets/team/abdulmalik-alsneed-sm.webp" },
   { name: { ar: "محمود عادل", en: "Mahmoud Adel" }, role: { ar: "مصمم جرافيك", en: "Graphic Artist" }, photo: "assets/team/mahmoud-adel.webp", photoSmall: "assets/team/mahmoud-adel-sm.webp" },
   { name: { ar: "غفران سالم", en: "Ghofran Salim" }, role: { ar: "مصمم ثلاثي الأبعاد أول", en: "Senior 3D Visualizer" }, photo: "assets/team/ghofran-salim.webp", photoSmall: "assets/team/ghofran-salim-sm.webp" }
