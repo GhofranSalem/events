@@ -56,7 +56,8 @@ admin/                dashboard (vevents.sa/admin) — see "Dashboard" below
 ## Dashboard (vevents.sa/admin)
 
 - For him and colleagues: edit texts (every data-ar/data-en in index.html, page title/description), hero photos + typewriter h1,
-  team, projects (images, services, videos, hidden, order), client logos, services photos, WhatsApp/email/map link.
+  team, projects (images, services, videos, hidden, order), client logos, services (add/remove/reorder, photo, contact-form choice,
+  download links = PDF uploaded to `assets/files/` or any https link, shown as `a.service-download`), WhatsApp/email/map link.
 - `admin/index.html|admin.css|admin.js` (no build) + `admin/api.php`. The browser loads the files from GitHub through the API,
   edits them in memory (index.html via DOMParser, data files as JSON), shows a **preview** (srcdoc iframe with the exact new files,
   new photos as blob: URLs), then **publishes one commit** to `main` (Git Data API) → the normal FTP deploy puts it live.
@@ -64,7 +65,8 @@ admin/                dashboard (vevents.sa/admin) — see "Dashboard" below
 - Photos are converted in the browser to WebP at the site's sizes (hero 2400/1000w, team 1000×1250/500×625, projects 1600w + 720w thumb,
   services 1200×900/640×480, logos ≤360×200 with `--w` = min(190, 107.2·√ratio)). New files always get a new name (images are cached a week).
   Removed/replaced images are deleted in the same commit if nothing else uses them. Safari fallback encoder: `admin/vendor/webp_enc.*` (@jsquash/webp 1.5.0, Apache-2.0).
-- The API can only write: index.html, project.html, js/team-data.js, js/projects-data.js, js/app.js, js/portfolio.js and `assets/(hero|team|projects|clients|services)/*.webp`.
+- The API can only write: index.html, project.html, js/team-data.js, js/projects-data.js, js/app.js, js/portfolio.js, `assets/(hero|team|projects|clients|services)/*.webp` and `assets/files/*.pdf`
+  (PDF size limit = what the host's PHP accepts in one request, shown to the user).
   It refuses to publish if `main` moved since the page loaded (conflict).
 - Token: GitHub secret `ADMIN_GITHUB_TOKEN` (fine-grained, only this repo, Contents read/write + Actions read, set up 2026-11-03 with no expiration).
 - Accounts: the **owner** account(s) come from secret `ADMIN_USERS` (one `username:password` per line; can't be deleted from the dashboard, so nobody gets locked out).
