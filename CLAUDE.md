@@ -58,7 +58,20 @@ admin/                dashboard (vevents.sa/admin) — see "Dashboard" below
 - For him and colleagues: edit texts (every data-ar/data-en in index.html, page title/description), hero photos + typewriter h1,
   team, projects (images, services, videos, hidden, order), client logos, services (add/remove/reorder, photo, contact-form choice,
   download links = PDF uploaded to `assets/files/` or any https link, shown as `a.service-download`), WhatsApp/email/map link.
-- `admin/index.html|admin.css|admin.js` (no build) + `admin/api.php`. The browser loads the files from GitHub through the API,
+- Code (no build; native ES modules):
+  ```
+  admin/index.html, admin.css
+  admin/js/main.js        entry: login, load, top-bar buttons (sets api hooks)
+  admin/js/api.js         fetch wrapper + Arabic error messages
+  admin/js/state.js       S (everything being edited), read/write data files, outputs(), changes(), dirty badge
+  admin/js/images.js      photos -> WebP at site sizes, new file names, drop() for removed files
+  admin/js/ui.js dom.js   dialogs, fields, list editor / $ and h()
+  admin/js/app.js         tabs + render/rerender
+  admin/js/views/*.js     one file per tab (hero, texts, team, projects, clients, services, settings, users)
+  admin/js/publish.js     problems() checks, preview, publish flow
+  admin/api.php           router; admin/lib/{http,accounts,github}.php (lib/ denied by its own .htaccess)
+  ```
+  The browser loads the files from GitHub through the API,
   edits them in memory (index.html via DOMParser, data files as JSON), shows a **preview** (srcdoc iframe with the exact new files,
   new photos as blob: URLs), then **publishes one commit** to `main` (Git Data API) → the normal FTP deploy puts it live.
   So GitHub stays the source of truth; never edit files on the server.

@@ -34,7 +34,27 @@ jobs:
         run: php .github/scripts/admin-config.php > admin/config.php
 
       - name: Upload site to the vevents.sa folder
+        id: upload
         if: env.FTP_SERVER != ''
+        continue-on-error: true
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          server-dir: ./
+          exclude: |
+            **/.git*
+            **/.git*/**
+            .github/**
+            README.md
+            CLAUDE.md
+            admin/users.php
+
+      # The FTP server sometimes drops the connection; try once more before failing.
+      - name: Upload site again (only if the first try failed)
+        if: env.FTP_SERVER != '' && steps.upload.outcome == 'failure'
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
