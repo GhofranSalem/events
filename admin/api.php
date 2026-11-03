@@ -20,12 +20,46 @@ function fail(string $message, int $code = 400, array $extra = []): void { out([
 $configFile = __DIR__ . '/config.php';
 if (!is_file($configFile)) fail('not_configured', 503);
 $config = require $configFile;
-$users = $config['users'] ?? [];
+// Accounts: the "owners" come from the ADMIN_USERS GitHub secret (they can never be locked out);
+// everyone else is added from the dashboard and kept in admin/users.php on the server only (never in GitHub).
+$owners = $config['users'] ?? [];
+$usersFile = __DIR__ . '/users.php';
+$saved = is_file($usersFile) ? (require $usersFile) : [];
+if (!is_array($saved)) $saved = [];
+$users = [];   // name => ['hash' => ..., 'alt' => ?, 'admin' => bool, 'owner' => bool]
+foreach ($owners as $name => $hash) $users[$name] = ['hash' => $hash, 'alt' => null, 'admin' => true, 'owner' => true];
+foreach ($saved as $name => $u) {
+    if (!is_array($u) || !isset($u['hash'])) continue;
+    // an owner who changed their password here: both the new one and the one in the GitHub secret work
+    if (isset($users[$name])) $users[$name]['alt'] = $u['hash'];
+    else $users[$name] = ['hash' => $u['hash'], 'alt' => null, 'admin' => !empty($u['admin']), 'owner' => false];
+}
+function saveUsers(array $users): void {
+    global $usersFile;
+    $keep = [];
+    foreach ($users as $name => $u) {
+        if ($u['owner']) { if ($u['alt']) $keep[$name] = ['hash' => $u['alt'], 'admin' => true]; }
+        else $keep[$name] = ['hash' => $u['hash'], 'admin' => $u['admin']];
+    }
+    $tmp = $usersFile . '.' . bin2hex(random_bytes(4)) . '.tmp';
+    $php = "<?php\n// Dashboard accounts added from vevents.sa/admin. Managed from the dashboard; not in GitHub.\nreturn " . var_export($keep, true) . ";\n";
+    if (@file_put_contents($tmp, $php) === false || !@rename($tmp, $usersFile)) { @unlink($tmp); fail('cannot_save_users', 500); }
+    @chmod($usersFile, 0600);
+    if (function_exists('opcache_invalidate')) @opcache_invalidate($usersFile, true);
+}
+// Changes when this person's password changes (owners' secret hashes are re-salted on every deploy, so they don't count).
+function stampOf(array $users, string $name): string {
+    $u = $users[$name] ?? null;
+    return substr(hash('sha256', $u ? ($u['owner'] ? 'owner' . ($u['alt'] ?? '') : $u['hash']) : ''), 0, 16);
+}
+function checkPassword(array $u, string $pass): bool {
+    return password_verify($pass, $u['hash']) || ($u['alt'] && password_verify($pass, $u['alt']));
+}
 $token = (string)($config['github_token'] ?? '');
 $repo = (string)($config['repo'] ?? 'GhofranSalem/events');
 $branch = (string)($config['branch'] ?? 'main');
 $apiBase = rtrim((string)($config['api_base'] ?? 'https://api.github.com'), '/');
-if (!$users || $token === '') fail('not_configured', 503);
+if (!$owners || $token === '') fail('not_configured', 503);
 
 // Only JSON POSTs with our header (blocks cross-site form posts; other sites can't add the header without CORS).
 if ($_SERVER['REQUEST_METHOD'] !== 'POST' || ($_SERVER['HTTP_X_ADMIN'] ?? '') !== '1') fail('bad_request', 400);
@@ -52,8 +86,7 @@ if ($action === 'login') {
     if (count($fails) >= 8) fail('too_many_attempts', 429);
     $user = strtolower(trim((string)($in['user'] ?? '')));
     $pass = (string)($in['pass'] ?? '');
-    $hash = $users[$user] ?? null;
-    if (!is_string($hash) || !password_verify($pass, $hash)) {
+    if (!isset($users[$user]) || !checkPassword($users[$user], $pass)) {
         $fails[] = time();
         @file_put_contents(attemptsFile(), json_encode($fails));
         usleep(800000);
@@ -62,8 +95,9 @@ if ($action === 'login') {
     @unlink(attemptsFile());
     session_regenerate_id(true);
     $_SESSION['user'] = $user;
+    $_SESSION['stamp'] = stampOf($users, $user);
     $_SESSION['seen'] = time();
-    out(['user' => $user]);
+    out(['user' => $user, 'admin' => $users[$user]['admin']]);
 }
 if ($action === 'logout') {
     $_SESSION = [];
@@ -73,14 +107,61 @@ if ($action === 'logout') {
 
 // Everything below needs a logged-in user (sessions end after 8 hours without use).
 $user = $_SESSION['user'] ?? null;
-if (!$user || !isset($users[$user]) || time() - (int)($_SESSION['seen'] ?? 0) > 28800) {
+// (a deleted account, or a password changed somewhere else, ends the session)
+if (!$user || !isset($users[$user]) || ($_SESSION['stamp'] ?? '') !== stampOf($users, $user) || time() - (int)($_SESSION['seen'] ?? 0) > 28800) {
     $_SESSION = [];
     fail('login_required', 401);
 }
 $_SESSION['seen'] = time();
+$isAdmin = $users[$user]['admin'];
+
+// ---------- accounts ----------
+function validName(string $n): bool { return (bool)preg_match('/^[a-z0-9][a-z0-9._-]{1,29}$/', $n); }
+function validPass(string $p): bool { $n = function_exists('mb_strlen') ? mb_strlen($p) : strlen($p); return $n >= 8 && $n <= 200; }
+function userList(array $users): array {
+    $list = [];
+    foreach ($users as $name => $u) $list[] = ['name' => $name, 'admin' => $u['admin'], 'owner' => $u['owner']];
+    return $list;
+}
+if ($action === 'password') { // change your own password
+    if (!checkPassword($users[$user], (string)($in['current'] ?? ''))) fail('wrong_password', 400);
+    $new = (string)($in['new'] ?? '');
+    if (!validPass($new)) fail('weak_password', 400);
+    $users[$user][$users[$user]['owner'] ? 'alt' : 'hash'] = password_hash($new, PASSWORD_DEFAULT);
+    saveUsers($users);
+    $_SESSION['stamp'] = stampOf($users, $user);
+    out(['ok' => true]);
+}
+if (in_array($action, ['users', 'user_save', 'user_delete'], true)) {
+    if (!$isAdmin) fail('not_allowed', 403);
+    if ($action === 'user_save') {
+        $name = strtolower(trim((string)($in['name'] ?? '')));
+        $pass = (string)($in['pass'] ?? '');
+        $isNew = !isset($users[$name]);
+        if (!validName($name)) fail('bad_username', 400);
+        if (!$isNew && $users[$name]['owner']) fail('owner_locked', 400);
+        if ($isNew) $users[$name] = ['hash' => '', 'alt' => null, 'admin' => false, 'owner' => false];
+        if ($isNew || $pass !== '') {
+            if (!validPass($pass)) fail('weak_password', 400);
+            $users[$name]['hash'] = password_hash($pass, PASSWORD_DEFAULT);
+        }
+        if (!$users[$name]['owner']) $users[$name]['admin'] = !empty($in['admin']);
+        saveUsers($users);
+        if ($name === $user) $_SESSION['stamp'] = stampOf($users, $user);
+    }
+    if ($action === 'user_delete') {
+        $name = (string)($in['name'] ?? '');
+        if (!isset($users[$name])) fail('bad_username', 400);
+        if ($users[$name]['owner']) fail('owner_locked', 400);
+        if ($name === $user) fail('not_allowed', 400);
+        unset($users[$name]);
+        saveUsers($users);
+    }
+    out(['users' => userList($users)]);
+}
 session_write_close(); // don't hold the session lock during slow GitHub calls
 
-if ($action === 'session') out(['user' => $user]);
+if ($action === 'session') out(['user' => $user, 'admin' => $isAdmin]);
 
 // ---------- GitHub ----------
 function gh(string $method, string $path, ?array $body = null): array {
@@ -134,7 +215,7 @@ if ($action === 'load') {
         $c = ghOk('GET', "/repos/$repo/contents/" . $p . '?ref=' . $head);
         $files[$p] = base64_decode(str_replace("\n", '', (string)($c['content'] ?? '')));
     }
-    out(['head' => $head, 'files' => $files, 'user' => $user]);
+    out(['head' => $head, 'files' => $files, 'user' => $user, 'admin' => $isAdmin]);
 }
 
 if ($action === 'blob') {

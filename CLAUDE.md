@@ -66,9 +66,12 @@ admin/                dashboard (vevents.sa/admin) — see "Dashboard" below
   Removed/replaced images are deleted in the same commit if nothing else uses them. Safari fallback encoder: `admin/vendor/webp_enc.*` (@jsquash/webp 1.5.0, Apache-2.0).
 - The API can only write: index.html, project.html, js/team-data.js, js/projects-data.js, js/app.js, js/portfolio.js and `assets/(hero|team|projects|clients|services)/*.webp`.
   It refuses to publish if `main` moved since the page loaded (conflict).
-- Logins + token: GitHub secrets `ADMIN_USERS` (one `username:password` per line) and `ADMIN_GITHUB_TOKEN`
-  (fine-grained, only this repo, Contents read/write + Actions read). The deploy workflow writes `admin/config.php` (password hashes + token)
-  with `.github/scripts/admin-config.php`; it is gitignored and denied by `.htaccess`. Changing users = edit the secret, then re-run the deploy.
+- Token: GitHub secret `ADMIN_GITHUB_TOKEN` (fine-grained, only this repo, Contents read/write + Actions read, set up 2026-11-03 with no expiration).
+- Accounts: the **owner** account(s) come from secret `ADMIN_USERS` (one `username:password` per line; can't be deleted from the dashboard, so nobody gets locked out).
+  Everyone else is added/edited/deleted by an admin in the dashboard's «المستخدمين» tab and stored only on the server in `admin/users.php`
+  (hashes; gitignored, excluded from the deploy, denied by `.htaccess`). Everyone can change their own password («كلمة المرور» in the top bar);
+  an owner who does keeps the secret password working too (recovery). Deleting a user or changing a password ends their open sessions.
+- The deploy workflow writes `admin/config.php` (owner hashes + token) with `.github/scripts/admin-config.php`; gitignored and denied by `.htaccess`.
 - Keep the generated formats stable when editing by hand: `js/team-data.js` = one JSON object per line; `js/projects-data.js` = `JSON.stringify(…, null, 2)`;
   index.html as the browser serializes it (boolean attributes without `=""`, `&amp;` in attributes). Otherwise the dashboard's first publish rewrites them.
 

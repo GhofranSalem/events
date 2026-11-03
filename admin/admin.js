@@ -30,6 +30,12 @@ const ERRORS = {
   github_error: 'GitHub رجّع خطأ.',
   bad_image: 'الصورة مش سليمة.',
   path_not_allowed: 'ملف مش مسموح بتعديله.',
+  wrong_password: 'كلمة المرور الحالية غلط.',
+  weak_password: 'كلمة المرور لازم تكون 8 حروف أو أرقام على الأقل.',
+  bad_username: 'اسم المستخدم لازم يكون بالإنجليزي الصغير أو أرقام (من 2 لـ 30)، من غير مسافات.',
+  owner_locked: 'الحساب ده أساسي (متسجل في GitHub) ومينفعش يتمسح أو يتعدل من هنا.',
+  not_allowed: 'مش مسموحلك تعمل ده.',
+  cannot_save_users: 'السيرفر مقدرش يحفظ المستخدمين.',
 };
 class ApiError extends Error { constructor(code, detail) { super(ERRORS[code] || code); this.code = code; this.detail = detail; } }
 async function api(action, data = {}) {
@@ -63,7 +69,7 @@ const S = {
 };
 const TABS = [
   ['hero', 'الهيرو والنص المتكتب'], ['texts', 'كل النصوص'], ['team', 'فريق العمل'], ['projects', 'المشروعات'],
-  ['clients', 'العملاء'], ['services', 'صور الخدمات'], ['settings', 'التواصل'],
+  ['clients', 'العملاء'], ['services', 'صور الخدمات'], ['settings', 'التواصل'], ['users', 'المستخدمين'],
 ];
 const CATEGORIES = { events: 'فعاليات وتجارب', exhibitions: 'معارض وأجنحة', sports: 'بطولات رياضية' };
 const imgURL = p => S.urls.get(p) || '../' + p;
@@ -250,14 +256,14 @@ function pageHead(title, text, ...extra) { return h('div', { class: 'page-head' 
 
 // ---------------------------------------------------------------- tabs
 function renderTabs() {
-  $('#tabs').replaceChildren(...TABS.map(([id, label]) => h('button', {
+  $('#tabs').replaceChildren(...TABS.filter(([id]) => id !== 'users' || S.admin).map(([id, label]) => h('button', {
     type: 'button', role: 'tab', 'aria-selected': String(S.tab === id), text: label,
     onclick: () => { S.tab = id; S.editing = null; renderTabs(); render(); scrollTo(0, 0); },
   })));
 }
 function render() {
   const view = $('#view');
-  const fn = { hero: viewHero, texts: viewTexts, team: viewTeam, projects: viewProjects, clients: viewClients, services: viewServices, settings: viewSettings }[S.tab];
+  const fn = { users: viewUsers, hero: viewHero, texts: viewTexts, team: viewTeam, projects: viewProjects, clients: viewClients, services: viewServices, settings: viewSettings }[S.tab];
   const y = scrollY;
   view.replaceChildren(...[fn()].flat());
   return y;
@@ -718,6 +724,63 @@ function viewSettings() {
   ];
 }
 
+// ---------------------------------------------------------------- accounts
+function passwordInput(placeholder) { return h('input', { type: 'password', dir: 'ltr', autocomplete: 'new-password', placeholder, minlength: 8 }); }
+function viewUsers() {
+  const box = h('div', { class: 'rows' }, h('p', { class: 'hint', text: 'بحمّل…' }));
+  const draw = list => box.replaceChildren(...list.map(u => h('div', { class: 'row', style: 'grid-template-columns:1fr auto;align-items:center' },
+    h('div', {}, h('strong', { text: u.name, dir: 'ltr' }),
+      u.owner ? h('span', { class: 'pill', text: 'أساسي' }) : u.admin ? h('span', { class: 'pill', text: 'بيضيف مستخدمين' }) : h('span', { class: 'pill off', text: 'تعديل ونشر بس' }),
+      u.name === S.user ? h('span', { class: 'pill', text: 'إنت' }) : null),
+    h('div', { style: 'display:flex;gap:8px;flex-wrap:wrap' },
+      u.owner || u.name === S.user ? null : h('button', { class: 'btn small ghost', type: 'button', text: 'تعديل', onclick: () => userDialog(u, draw) }),
+      u.owner || u.name === S.user ? null : h('button', { class: 'btn small danger', type: 'button', text: 'مسح', onclick: async () => {
+        if (!await confirmBox(`مسح حساب ${u.name}؟`, 'مش هيقدر يدخل الداش بورد تاني.', 'مسح', true)) return;
+        await withBusy('لحظة…', async () => { draw((await api('user_delete', { name: u.name })).users); toast('اتمسح'); });
+      } })))));
+  api('users').then(r => draw(r.users)).catch(e => box.replaceChildren(h('p', { class: 'error', text: e.message })));
+  return [
+    pageHead('المستخدمين', 'مين يقدر يدخل لوحة التحكم. كل واحد ليه اسم وكلمة مرور خاصين بيه، وكل نشر بيتسجل باسمه.',
+      h('button', { class: 'btn gold', type: 'button', text: '+ مستخدم جديد', onclick: () => userDialog(null, draw) })),
+    h('div', { class: 'note', text: 'الحسابات «الأساسية» جاية من GitHub ومينفعش تتمسح من هنا، عشان محدش يقفل الباب على الكل بالغلط.' }),
+    box,
+  ];
+}
+function userDialog(u, draw) {
+  const name = h('input', { dir: 'ltr', autocomplete: 'off', placeholder: 'مثلًا: ahmed' });
+  if (u) { name.value = u.name; name.disabled = true; }
+  const pass = passwordInput(u ? 'سيبها فاضية لو مش هتغيرها' : '8 حروف أو أرقام على الأقل');
+  const admin = h('input', { type: 'checkbox' }); admin.checked = !!u?.admin;
+  const err = h('p', { class: 'error', style: 'text-align:start' });
+  const save = async () => {
+    err.textContent = '';
+    try { draw((await api('user_save', { name: name.value, pass: pass.value, admin: admin.checked })).users); closeDialog(); toast(u ? 'اتحفظ' : 'اتضاف — ابعتله الاسم وكلمة المرور'); }
+    catch (e) { err.textContent = e.message; }
+  };
+  dialog(h('h3', { text: u ? `تعديل ${u.name}` : 'مستخدم جديد' }),
+    h('label', { class: 'field' }, h('span', { text: 'اسم المستخدم (إنجليزي صغير من غير مسافات)' }), name),
+    h('label', { class: 'field' }, h('span', { text: u ? 'كلمة مرور جديدة' : 'كلمة المرور' }), pass),
+    h('label', { class: 'check' }, admin, 'يقدر يضيف ويمسح مستخدمين'),
+    err,
+    h('div', { class: 'actions' }, h('button', { class: 'btn gold', type: 'button', text: 'حفظ', onclick: save }), h('button', { class: 'btn ghost', type: 'button', text: 'رجوع', onclick: closeDialog })));
+  (u ? pass : name).focus();
+}
+function changePasswordDialog() {
+  const cur = h('input', { type: 'password', dir: 'ltr', autocomplete: 'current-password' });
+  const nw = passwordInput('8 حروف أو أرقام على الأقل');
+  const err = h('p', { class: 'error', style: 'text-align:start' });
+  dialog(h('h3', { text: 'تغيير كلمة المرور' }),
+    h('label', { class: 'field' }, h('span', { text: 'كلمة المرور الحالية' }), cur),
+    h('label', { class: 'field' }, h('span', { text: 'كلمة المرور الجديدة' }), nw), err,
+    h('div', { class: 'actions' },
+      h('button', { class: 'btn gold', type: 'button', text: 'حفظ', onclick: async () => {
+        err.textContent = '';
+        try { await api('password', { current: cur.value, new: nw.value }); closeDialog(); toast('اتغيرت كلمة المرور'); } catch (e) { err.textContent = e.message; }
+      } }),
+      h('button', { class: 'btn ghost', type: 'button', text: 'رجوع', onclick: closeDialog })));
+  cur.focus();
+}
+
 // ---------------------------------------------------------------- validation before preview / publish
 function problems() {
   const list = [];
@@ -847,7 +910,7 @@ async function load() {
   busy('بحمّل آخر نسخة من الموقع…');
   try {
     const r = await api('load');
-    S.head = r.head; S.user = r.user;
+    S.head = r.head; S.user = r.user; S.admin = !!r.admin;
     parseAll(r.files);
     $('#who').textContent = S.user;
     $('#login-view').hidden = true; $('#app').hidden = false;
@@ -874,6 +937,7 @@ $('#btn-discard').addEventListener('click', async () => {
   if (!await confirmBox('إلغاء كل التعديلات اللي متنشرتش؟', 'هرجع لآخر نسخة منشورة.', 'إلغاء التعديلات', true)) return;
   S.isDirty = false; S.editing = null; await load();
 });
+$('#btn-password').addEventListener('click', changePasswordDialog);
 $('#btn-preview').addEventListener('click', openPreview);
 $('#btn-publish').addEventListener('click', publish);
 $('#preview-close').addEventListener('click', closePreview);

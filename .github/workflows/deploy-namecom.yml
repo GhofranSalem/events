@@ -48,6 +48,7 @@ jobs:
             .github/**
             README.md
             CLAUDE.md
+            admin/users.php
 
       - name: FTP details not set yet
         if: env.FTP_SERVER == ''
