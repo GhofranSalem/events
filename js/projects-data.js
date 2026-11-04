@@ -14,12 +14,12 @@ window.VISION_PROJECTS = [
     },
     "category": "events",
     "images": [
-      "assets/projects/project-01-01.webp",
-      "assets/projects/project-01-02.webp",
-      "assets/projects/project-01-03.webp",
-      "assets/projects/project-01-04.webp",
-      "assets/projects/project-01-05.webp",
-      "assets/projects/project-01-06.webp"
+      "assets/projects/project-01-v2-01.webp",
+      "assets/projects/project-01-v2-02.webp",
+      "assets/projects/project-01-v2-03.webp",
+      "assets/projects/project-01-v2-04.webp",
+      "assets/projects/project-01-v2-05.webp",
+      "assets/projects/project-01-v2-06.webp"
     ],
     "services": [
       {
@@ -44,7 +44,7 @@ window.VISION_PROJECTS = [
       }
     ],
     "videos": [],
-    "thumb": "assets/projects/project-01-01-thumb.webp"
+    "thumb": "assets/projects/project-01-v2-01-thumb.webp"
   },
   {
     "id": "project-03",
@@ -58,12 +58,13 @@ window.VISION_PROJECTS = [
     },
     "category": "exhibitions",
     "images": [
-      "assets/projects/project-03-01.webp",
-      "assets/projects/project-03-02.webp",
-      "assets/projects/project-03-03.webp",
-      "assets/projects/project-03-04.webp",
-      "assets/projects/project-03-05.webp",
-      "assets/projects/project-03-06.webp"
+      "assets/projects/project-03-v2-01.webp",
+      "assets/projects/project-03-v2-02.webp",
+      "assets/projects/project-03-v2-03.webp",
+      "assets/projects/project-03-v2-04.webp",
+      "assets/projects/project-03-v2-05.webp",
+      "assets/projects/project-03-v2-06.webp",
+      "assets/projects/project-03-v2-07.webp"
     ],
     "services": [
       {
@@ -88,7 +89,7 @@ window.VISION_PROJECTS = [
       }
     ],
     "videos": [],
-    "thumb": "assets/projects/project-03-01-thumb.webp"
+    "thumb": "assets/projects/project-03-v2-01-thumb.webp"
   },
   {
     "id": "project-04",
@@ -102,10 +103,10 @@ window.VISION_PROJECTS = [
     },
     "category": "exhibitions",
     "images": [
-      "assets/projects/project-04-01.webp",
-      "assets/projects/project-04-02.webp",
-      "assets/projects/project-04-03.webp",
-      "assets/projects/project-04-04.webp"
+      "assets/projects/project-04-v2-01.webp",
+      "assets/projects/project-04-v2-02.webp",
+      "assets/projects/project-04-v2-03.webp",
+      "assets/projects/project-04-v2-04.webp"
     ],
     "services": [
       {
@@ -130,7 +131,7 @@ window.VISION_PROJECTS = [
       }
     ],
     "videos": [],
-    "thumb": "assets/projects/project-04-01-thumb.webp"
+    "thumb": "assets/projects/project-04-v2-01-thumb.webp"
   },
   {
     "id": "project-05",
@@ -144,12 +145,11 @@ window.VISION_PROJECTS = [
     },
     "category": "events",
     "images": [
-      "assets/projects/project-05-01.webp",
-      "assets/projects/project-05-02.webp",
-      "assets/projects/project-05-03.webp",
-      "assets/projects/project-05-04.webp",
-      "assets/projects/project-05-05.webp",
-      "assets/projects/project-05-06.webp"
+      "assets/projects/project-05-v2-01.webp",
+      "assets/projects/project-05-v2-02.webp",
+      "assets/projects/project-05-v2-03.webp",
+      "assets/projects/project-05-v2-04.webp",
+      "assets/projects/project-05-v2-05.webp"
     ],
     "services": [
       {
@@ -174,7 +174,7 @@ window.VISION_PROJECTS = [
       }
     ],
     "videos": [],
-    "thumb": "assets/projects/project-05-01-thumb.webp"
+    "thumb": "assets/projects/project-05-v2-01-thumb.webp"
   },
   {
     "id": "project-06",
@@ -188,12 +188,12 @@ window.VISION_PROJECTS = [
     },
     "category": "events",
     "images": [
-      "assets/projects/project-06-01.webp",
-      "assets/projects/project-06-02.webp",
-      "assets/projects/project-06-03.webp",
-      "assets/projects/project-06-04.webp",
-      "assets/projects/project-06-05.webp",
-      "assets/projects/project-06-06.webp"
+      "assets/projects/project-06-v2-01.webp",
+      "assets/projects/project-06-v2-02.webp",
+      "assets/projects/project-06-v2-03.webp",
+      "assets/projects/project-06-v2-04.webp",
+      "assets/projects/project-06-v2-05.webp",
+      "assets/projects/project-06-v2-06.webp"
     ],
     "services": [
       {
@@ -218,7 +218,7 @@ window.VISION_PROJECTS = [
       }
     ],
     "videos": [],
-    "thumb": "assets/projects/project-06-01-thumb.webp"
+    "thumb": "assets/projects/project-06-v2-01-thumb.webp"
   },
   {
     "id": "project-07",
@@ -232,12 +232,14 @@ window.VISION_PROJECTS = [
     },
     "category": "exhibitions",
     "images": [
-      "assets/projects/project-07-01.webp",
-      "assets/projects/project-07-02.webp",
-      "assets/projects/project-07-03.webp",
-      "assets/projects/project-07-04.webp",
-      "assets/projects/project-07-05.webp",
-      "assets/projects/project-07-06.webp"
+      "assets/projects/project-07-v2-01.webp",
+      "assets/projects/project-07-v2-02.webp",
+      "assets/projects/project-07-v2-03.webp",
+      "assets/projects/project-07-v2-04.webp",
+      "assets/projects/project-07-v2-05.webp",
+      "assets/projects/project-07-v2-06.webp",
+      "assets/projects/project-07-v2-07.webp",
+      "assets/projects/project-07-v2-08.webp"
     ],
     "services": [
       {
@@ -262,7 +264,7 @@ window.VISION_PROJECTS = [
       }
     ],
     "videos": [],
-    "thumb": "assets/projects/project-07-01-thumb.webp"
+    "thumb": "assets/projects/project-07-v2-01-thumb.webp"
   },
   {
     "id": "project-08",
@@ -276,12 +278,11 @@ window.VISION_PROJECTS = [
     },
     "category": "events",
     "images": [
-      "assets/projects/project-08-01.webp",
-      "assets/projects/project-08-02.webp",
-      "assets/projects/project-08-03.webp",
-      "assets/projects/project-08-04.webp",
-      "assets/projects/project-08-05.webp",
-      "assets/projects/project-08-06.webp"
+      "assets/projects/project-08-v2-01.webp",
+      "assets/projects/project-08-v2-02.webp",
+      "assets/projects/project-08-v2-03.webp",
+      "assets/projects/project-08-v2-04.webp",
+      "assets/projects/project-08-v2-05.webp"
     ],
     "services": [
       {
@@ -306,7 +307,7 @@ window.VISION_PROJECTS = [
       }
     ],
     "videos": [],
-    "thumb": "assets/projects/project-08-01-thumb.webp"
+    "thumb": "assets/projects/project-08-v2-01-thumb.webp"
   },
   {
     "id": "project-09",
@@ -320,12 +321,15 @@ window.VISION_PROJECTS = [
     },
     "category": "events",
     "images": [
-      "assets/projects/project-09-01.webp",
-      "assets/projects/project-09-02.webp",
-      "assets/projects/project-09-03.webp",
-      "assets/projects/project-09-04.webp",
-      "assets/projects/project-09-05.webp",
-      "assets/projects/project-09-06.webp"
+      "assets/projects/project-09-v2-01.webp",
+      "assets/projects/project-09-v2-02.webp",
+      "assets/projects/project-09-v2-03.webp",
+      "assets/projects/project-09-v2-04.webp",
+      "assets/projects/project-09-v2-05.webp",
+      "assets/projects/project-09-v2-06.webp",
+      "assets/projects/project-09-v2-07.webp",
+      "assets/projects/project-09-v2-08.webp",
+      "assets/projects/project-09-v2-09.webp"
     ],
     "services": [
       {
@@ -350,7 +354,7 @@ window.VISION_PROJECTS = [
       }
     ],
     "videos": [],
-    "thumb": "assets/projects/project-09-01-thumb.webp"
+    "thumb": "assets/projects/project-09-v2-01-thumb.webp"
   },
   {
     "id": "project-10",
@@ -364,9 +368,9 @@ window.VISION_PROJECTS = [
     },
     "category": "events",
     "images": [
-      "assets/projects/project-10-01.webp",
-      "assets/projects/project-10-02.webp",
-      "assets/projects/project-10-03.webp"
+      "assets/projects/project-10-v2-01.webp",
+      "assets/projects/project-10-v2-02.webp",
+      "assets/projects/project-10-v2-03.webp"
     ],
     "services": [
       {
@@ -391,7 +395,7 @@ window.VISION_PROJECTS = [
       }
     ],
     "videos": [],
-    "thumb": "assets/projects/project-10-01-thumb.webp"
+    "thumb": "assets/projects/project-10-v2-01-thumb.webp"
   },
   {
     "id": "project-11",
@@ -405,12 +409,12 @@ window.VISION_PROJECTS = [
     },
     "category": "exhibitions",
     "images": [
-      "assets/projects/project-11-01.webp",
-      "assets/projects/project-11-02.webp",
-      "assets/projects/project-11-03.webp",
-      "assets/projects/project-11-04.webp",
-      "assets/projects/project-11-05.webp",
-      "assets/projects/project-11-06.webp"
+      "assets/projects/project-11-v2-01.webp",
+      "assets/projects/project-11-v2-02.webp",
+      "assets/projects/project-11-v2-03.webp",
+      "assets/projects/project-11-v2-04.webp",
+      "assets/projects/project-11-v2-05.webp",
+      "assets/projects/project-11-v2-06.webp"
     ],
     "services": [
       {
@@ -431,7 +435,7 @@ window.VISION_PROJECTS = [
       }
     ],
     "videos": [],
-    "thumb": "assets/projects/project-11-01-thumb.webp"
+    "thumb": "assets/projects/project-11-v2-01-thumb.webp"
   },
   {
     "id": "project-12",
@@ -445,9 +449,9 @@ window.VISION_PROJECTS = [
     },
     "category": "events",
     "images": [
-      "assets/projects/project-12-01.webp",
-      "assets/projects/project-12-02.webp",
-      "assets/projects/project-12-03.webp"
+      "assets/projects/project-12-v2-01.webp",
+      "assets/projects/project-12-v2-02.webp",
+      "assets/projects/project-12-v2-03.webp"
     ],
     "services": [
       {
@@ -468,7 +472,7 @@ window.VISION_PROJECTS = [
       }
     ],
     "videos": [],
-    "thumb": "assets/projects/project-12-01-thumb.webp"
+    "thumb": "assets/projects/project-12-v2-01-thumb.webp"
   },
   {
     "id": "project-14",
@@ -482,12 +486,13 @@ window.VISION_PROJECTS = [
     },
     "category": "events",
     "images": [
-      "assets/projects/project-14-01.webp",
-      "assets/projects/project-14-02.webp",
-      "assets/projects/project-14-03.webp",
-      "assets/projects/project-14-04.webp",
-      "assets/projects/project-14-05.webp",
-      "assets/projects/project-14-06.webp"
+      "assets/projects/project-14-v2-01.webp",
+      "assets/projects/project-14-v2-02.webp",
+      "assets/projects/project-14-v2-03.webp",
+      "assets/projects/project-14-v2-04.webp",
+      "assets/projects/project-14-v2-05.webp",
+      "assets/projects/project-14-v2-06.webp",
+      "assets/projects/project-14-v2-07.webp"
     ],
     "services": [
       {
@@ -508,7 +513,7 @@ window.VISION_PROJECTS = [
       }
     ],
     "videos": [],
-    "thumb": "assets/projects/project-14-01-thumb.webp"
+    "thumb": "assets/projects/project-14-v2-01-thumb.webp"
   },
   {
     "id": "project-15",
@@ -522,12 +527,15 @@ window.VISION_PROJECTS = [
     },
     "category": "events",
     "images": [
-      "assets/projects/project-15-01.webp",
-      "assets/projects/project-15-02.webp",
-      "assets/projects/project-15-03.webp",
-      "assets/projects/project-15-04.webp",
-      "assets/projects/project-15-05.webp",
-      "assets/projects/project-15-06.webp"
+      "assets/projects/project-15-v2-01.webp",
+      "assets/projects/project-15-v2-02.webp",
+      "assets/projects/project-15-v2-03.webp",
+      "assets/projects/project-15-v2-04.webp",
+      "assets/projects/project-15-v2-05.webp",
+      "assets/projects/project-15-v2-06.webp",
+      "assets/projects/project-15-v2-07.webp",
+      "assets/projects/project-15-v2-08.webp",
+      "assets/projects/project-15-v2-09.webp"
     ],
     "services": [
       {
@@ -548,7 +556,7 @@ window.VISION_PROJECTS = [
       }
     ],
     "videos": [],
-    "thumb": "assets/projects/project-15-01-thumb.webp"
+    "thumb": "assets/projects/project-15-v2-01-thumb.webp"
   },
   {
     "id": "project-16",
@@ -562,12 +570,13 @@ window.VISION_PROJECTS = [
     },
     "category": "events",
     "images": [
-      "assets/projects/project-16-01.webp",
-      "assets/projects/project-16-02.webp",
-      "assets/projects/project-16-03.webp",
-      "assets/projects/project-16-04.webp",
-      "assets/projects/project-16-05.webp",
-      "assets/projects/project-16-06.webp"
+      "assets/projects/project-16-v2-01.webp",
+      "assets/projects/project-16-v2-02.webp",
+      "assets/projects/project-16-v2-03.webp",
+      "assets/projects/project-16-v2-04.webp",
+      "assets/projects/project-16-v2-05.webp",
+      "assets/projects/project-16-v2-06.webp",
+      "assets/projects/project-16-v2-07.webp"
     ],
     "services": [
       {
@@ -588,7 +597,7 @@ window.VISION_PROJECTS = [
       }
     ],
     "videos": [],
-    "thumb": "assets/projects/project-16-01-thumb.webp"
+    "thumb": "assets/projects/project-16-v2-01-thumb.webp"
   },
   {
     "id": "project-17",
@@ -602,12 +611,11 @@ window.VISION_PROJECTS = [
     },
     "category": "exhibitions",
     "images": [
-      "assets/projects/project-17-01.webp",
-      "assets/projects/project-17-02.webp",
-      "assets/projects/project-17-03.webp",
-      "assets/projects/project-17-04.webp",
-      "assets/projects/project-17-05.webp",
-      "assets/projects/project-17-06.webp"
+      "assets/projects/project-17-v2-01.webp",
+      "assets/projects/project-17-v2-02.webp",
+      "assets/projects/project-17-v2-03.webp",
+      "assets/projects/project-17-v2-04.webp",
+      "assets/projects/project-17-v2-05.webp"
     ],
     "services": [
       {
@@ -628,7 +636,7 @@ window.VISION_PROJECTS = [
       }
     ],
     "videos": [],
-    "thumb": "assets/projects/project-17-01-thumb.webp"
+    "thumb": "assets/projects/project-17-v2-01-thumb.webp"
   },
   {
     "id": "project-18",
@@ -642,12 +650,14 @@ window.VISION_PROJECTS = [
     },
     "category": "events",
     "images": [
-      "assets/projects/project-18-01.webp",
-      "assets/projects/project-18-02.webp",
-      "assets/projects/project-18-03.webp",
-      "assets/projects/project-18-04.webp",
-      "assets/projects/project-18-05.webp",
-      "assets/projects/project-18-06.webp"
+      "assets/projects/project-18-v2-01.webp",
+      "assets/projects/project-18-v2-02.webp",
+      "assets/projects/project-18-v2-03.webp",
+      "assets/projects/project-18-v2-04.webp",
+      "assets/projects/project-18-v2-05.webp",
+      "assets/projects/project-18-v2-06.webp",
+      "assets/projects/project-18-v2-07.webp",
+      "assets/projects/project-18-v2-08.webp"
     ],
     "services": [
       {
@@ -668,7 +678,7 @@ window.VISION_PROJECTS = [
       }
     ],
     "videos": [],
-    "thumb": "assets/projects/project-18-01-thumb.webp"
+    "thumb": "assets/projects/project-18-v2-01-thumb.webp"
   },
   {
     "id": "project-19",
@@ -682,12 +692,14 @@ window.VISION_PROJECTS = [
     },
     "category": "events",
     "images": [
-      "assets/projects/project-19-01.webp",
-      "assets/projects/project-19-02.webp",
-      "assets/projects/project-19-03.webp",
-      "assets/projects/project-19-04.webp",
-      "assets/projects/project-19-05.webp",
-      "assets/projects/project-19-06.webp"
+      "assets/projects/project-19-v2-01.webp",
+      "assets/projects/project-19-v2-02.webp",
+      "assets/projects/project-19-v2-03.webp",
+      "assets/projects/project-19-v2-04.webp",
+      "assets/projects/project-19-v2-05.webp",
+      "assets/projects/project-19-v2-06.webp",
+      "assets/projects/project-19-v2-07.webp",
+      "assets/projects/project-19-v2-08.webp"
     ],
     "services": [
       {
@@ -712,7 +724,7 @@ window.VISION_PROJECTS = [
       }
     ],
     "videos": [],
-    "thumb": "assets/projects/project-19-01-thumb.webp"
+    "thumb": "assets/projects/project-19-v2-01-thumb.webp"
   },
   {
     "id": "project-20",
@@ -726,12 +738,13 @@ window.VISION_PROJECTS = [
     },
     "category": "exhibitions",
     "images": [
-      "assets/projects/project-20-01.webp",
-      "assets/projects/project-20-02.webp",
-      "assets/projects/project-20-03.webp",
-      "assets/projects/project-20-04.webp",
-      "assets/projects/project-20-05.webp",
-      "assets/projects/project-20-06.webp"
+      "assets/projects/project-20-v2-01.webp",
+      "assets/projects/project-20-v2-02.webp",
+      "assets/projects/project-20-v2-03.webp",
+      "assets/projects/project-20-v2-04.webp",
+      "assets/projects/project-20-v2-05.webp",
+      "assets/projects/project-20-v2-06.webp",
+      "assets/projects/project-20-v2-07.webp"
     ],
     "services": [
       {
@@ -756,7 +769,7 @@ window.VISION_PROJECTS = [
       }
     ],
     "videos": [],
-    "thumb": "assets/projects/project-20-01-thumb.webp"
+    "thumb": "assets/projects/project-20-v2-01-thumb.webp"
   },
   {
     "id": "project-21",
@@ -770,12 +783,11 @@ window.VISION_PROJECTS = [
     },
     "category": "sports",
     "images": [
-      "assets/projects/project-21-01.webp",
-      "assets/projects/project-21-02.webp",
-      "assets/projects/project-21-03.webp",
-      "assets/projects/project-21-04.webp",
-      "assets/projects/project-21-05.webp",
-      "assets/projects/project-21-06.webp"
+      "assets/projects/project-21-v2-01.webp",
+      "assets/projects/project-21-v2-02.webp",
+      "assets/projects/project-21-v2-03.webp",
+      "assets/projects/project-21-v2-04.webp",
+      "assets/projects/project-21-v2-05.webp"
     ],
     "services": [
       {
@@ -800,7 +812,7 @@ window.VISION_PROJECTS = [
       }
     ],
     "videos": [],
-    "thumb": "assets/projects/project-21-01-thumb.webp"
+    "thumb": "assets/projects/project-21-v2-01-thumb.webp"
   },
   {
     "id": "project-22",
@@ -814,12 +826,12 @@ window.VISION_PROJECTS = [
     },
     "category": "sports",
     "images": [
-      "assets/projects/project-22-01.webp",
-      "assets/projects/project-22-02.webp",
-      "assets/projects/project-22-03.webp",
-      "assets/projects/project-22-04.webp",
-      "assets/projects/project-22-05.webp",
-      "assets/projects/project-22-06.webp"
+      "assets/projects/project-22-v2-01.webp",
+      "assets/projects/project-22-v2-02.webp",
+      "assets/projects/project-22-v2-03.webp",
+      "assets/projects/project-22-v2-04.webp",
+      "assets/projects/project-22-v2-05.webp",
+      "assets/projects/project-22-v2-06.webp"
     ],
     "services": [
       {
@@ -840,7 +852,7 @@ window.VISION_PROJECTS = [
       }
     ],
     "videos": [],
-    "thumb": "assets/projects/project-22-01-thumb.webp"
+    "thumb": "assets/projects/project-22-v2-01-thumb.webp"
   },
   {
     "id": "project-23",
@@ -854,12 +866,12 @@ window.VISION_PROJECTS = [
     },
     "category": "sports",
     "images": [
-      "assets/projects/project-23-01.webp",
-      "assets/projects/project-23-02.webp",
-      "assets/projects/project-23-03.webp",
-      "assets/projects/project-23-04.webp",
-      "assets/projects/project-23-05.webp",
-      "assets/projects/project-23-06.webp"
+      "assets/projects/project-23-v2-01.webp",
+      "assets/projects/project-23-v2-02.webp",
+      "assets/projects/project-23-v2-03.webp",
+      "assets/projects/project-23-v2-04.webp",
+      "assets/projects/project-23-v2-05.webp",
+      "assets/projects/project-23-v2-06.webp"
     ],
     "services": [
       {
@@ -880,7 +892,7 @@ window.VISION_PROJECTS = [
       }
     ],
     "videos": [],
-    "thumb": "assets/projects/project-23-01-thumb.webp"
+    "thumb": "assets/projects/project-23-v2-01-thumb.webp"
   },
   {
     "id": "project-24",
@@ -894,12 +906,12 @@ window.VISION_PROJECTS = [
     },
     "category": "events",
     "images": [
-      "assets/projects/project-24-01.webp",
-      "assets/projects/project-24-02.webp",
-      "assets/projects/project-24-03.webp",
-      "assets/projects/project-24-04.webp",
-      "assets/projects/project-24-05.webp",
-      "assets/projects/project-24-06.webp"
+      "assets/projects/project-24-v2-01.webp",
+      "assets/projects/project-24-v2-02.webp",
+      "assets/projects/project-24-v2-03.webp",
+      "assets/projects/project-24-v2-04.webp",
+      "assets/projects/project-24-v2-05.webp",
+      "assets/projects/project-24-v2-06.webp"
     ],
     "services": [
       {
@@ -920,7 +932,7 @@ window.VISION_PROJECTS = [
       }
     ],
     "videos": [],
-    "thumb": "assets/projects/project-24-01-thumb.webp"
+    "thumb": "assets/projects/project-24-v2-01-thumb.webp"
   },
   {
     "id": "project-25",
@@ -934,12 +946,14 @@ window.VISION_PROJECTS = [
     },
     "category": "sports",
     "images": [
-      "assets/projects/project-25-01.webp",
-      "assets/projects/project-25-02.webp",
-      "assets/projects/project-25-03.webp",
-      "assets/projects/project-25-04.webp",
-      "assets/projects/project-25-05.webp",
-      "assets/projects/project-25-06.webp"
+      "assets/projects/project-25-v2-01.webp",
+      "assets/projects/project-25-v2-02.webp",
+      "assets/projects/project-25-v2-03.webp",
+      "assets/projects/project-25-v2-04.webp",
+      "assets/projects/project-25-v2-05.webp",
+      "assets/projects/project-25-v2-06.webp",
+      "assets/projects/project-25-v2-07.webp",
+      "assets/projects/project-25-v2-08.webp"
     ],
     "services": [
       {
@@ -960,7 +974,7 @@ window.VISION_PROJECTS = [
       }
     ],
     "videos": [],
-    "thumb": "assets/projects/project-25-01-thumb.webp"
+    "thumb": "assets/projects/project-25-v2-01-thumb.webp"
   },
   {
     "id": "project-26",
@@ -974,12 +988,15 @@ window.VISION_PROJECTS = [
     },
     "category": "sports",
     "images": [
-      "assets/projects/project-26-01.webp",
-      "assets/projects/project-26-02.webp",
-      "assets/projects/project-26-03.webp",
-      "assets/projects/project-26-04.webp",
-      "assets/projects/project-26-05.webp",
-      "assets/projects/project-26-06.webp"
+      "assets/projects/project-26-v2-01.webp",
+      "assets/projects/project-26-v2-02.webp",
+      "assets/projects/project-26-v2-03.webp",
+      "assets/projects/project-26-v2-04.webp",
+      "assets/projects/project-26-v2-05.webp",
+      "assets/projects/project-26-v2-06.webp",
+      "assets/projects/project-26-v2-07.webp",
+      "assets/projects/project-26-v2-08.webp",
+      "assets/projects/project-26-v2-09.webp"
     ],
     "services": [
       {
@@ -1000,7 +1017,7 @@ window.VISION_PROJECTS = [
       }
     ],
     "videos": [],
-    "thumb": "assets/projects/project-26-01-thumb.webp"
+    "thumb": "assets/projects/project-26-v2-01-thumb.webp"
   },
   {
     "id": "project-27",
@@ -1014,12 +1031,14 @@ window.VISION_PROJECTS = [
     },
     "category": "events",
     "images": [
-      "assets/projects/project-27-01.webp",
-      "assets/projects/project-27-02.webp",
-      "assets/projects/project-27-03.webp",
-      "assets/projects/project-27-04.webp",
-      "assets/projects/project-27-05.webp",
-      "assets/projects/project-27-06.webp"
+      "assets/projects/project-27-v2-01.webp",
+      "assets/projects/project-27-v2-02.webp",
+      "assets/projects/project-27-v2-03.webp",
+      "assets/projects/project-27-v2-04.webp",
+      "assets/projects/project-27-v2-05.webp",
+      "assets/projects/project-27-v2-06.webp",
+      "assets/projects/project-27-v2-07.webp",
+      "assets/projects/project-27-v2-08.webp"
     ],
     "services": [
       {
@@ -1040,7 +1059,7 @@ window.VISION_PROJECTS = [
       }
     ],
     "videos": [],
-    "thumb": "assets/projects/project-27-01-thumb.webp"
+    "thumb": "assets/projects/project-27-v2-01-thumb.webp"
   },
   {
     "id": "project-28",
@@ -1054,12 +1073,12 @@ window.VISION_PROJECTS = [
     },
     "category": "exhibitions",
     "images": [
-      "assets/projects/project-28-01.webp",
-      "assets/projects/project-28-02.webp",
-      "assets/projects/project-28-03.webp",
-      "assets/projects/project-28-04.webp",
-      "assets/projects/project-28-05.webp",
-      "assets/projects/project-28-06.webp"
+      "assets/projects/project-28-v2-01.webp",
+      "assets/projects/project-28-v2-02.webp",
+      "assets/projects/project-28-v2-03.webp",
+      "assets/projects/project-28-v2-04.webp",
+      "assets/projects/project-28-v2-05.webp",
+      "assets/projects/project-28-v2-06.webp"
     ],
     "services": [
       {
@@ -1080,7 +1099,7 @@ window.VISION_PROJECTS = [
       }
     ],
     "videos": [],
-    "thumb": "assets/projects/project-28-01-thumb.webp"
+    "thumb": "assets/projects/project-28-v2-01-thumb.webp"
   },
   {
     "id": "project-29",
@@ -1094,12 +1113,15 @@ window.VISION_PROJECTS = [
     },
     "category": "sports",
     "images": [
-      "assets/projects/project-29-01.webp",
-      "assets/projects/project-29-02.webp",
-      "assets/projects/project-29-03.webp",
-      "assets/projects/project-29-04.webp",
-      "assets/projects/project-29-05.webp",
-      "assets/projects/project-29-06.webp"
+      "assets/projects/project-29-v2-01.webp",
+      "assets/projects/project-29-v2-02.webp",
+      "assets/projects/project-29-v2-03.webp",
+      "assets/projects/project-29-v2-04.webp",
+      "assets/projects/project-29-v2-05.webp",
+      "assets/projects/project-29-v2-06.webp",
+      "assets/projects/project-29-v2-07.webp",
+      "assets/projects/project-29-v2-08.webp",
+      "assets/projects/project-29-v2-09.webp"
     ],
     "services": [
       {
@@ -1116,7 +1138,7 @@ window.VISION_PROJECTS = [
       }
     ],
     "videos": [],
-    "thumb": "assets/projects/project-29-01-thumb.webp"
+    "thumb": "assets/projects/project-29-v2-01-thumb.webp"
   },
   {
     "id": "project-30",
@@ -1130,12 +1152,14 @@ window.VISION_PROJECTS = [
     },
     "category": "sports",
     "images": [
-      "assets/projects/project-30-01.webp",
-      "assets/projects/project-30-02.webp",
-      "assets/projects/project-30-03.webp",
-      "assets/projects/project-30-04.webp",
-      "assets/projects/project-30-05.webp",
-      "assets/projects/project-30-06.webp"
+      "assets/projects/project-30-v2-01.webp",
+      "assets/projects/project-30-v2-02.webp",
+      "assets/projects/project-30-v2-03.webp",
+      "assets/projects/project-30-v2-04.webp",
+      "assets/projects/project-30-v2-05.webp",
+      "assets/projects/project-30-v2-06.webp",
+      "assets/projects/project-30-v2-07.webp",
+      "assets/projects/project-30-v2-08.webp"
     ],
     "services": [
       {
@@ -1160,7 +1184,7 @@ window.VISION_PROJECTS = [
       }
     ],
     "videos": [],
-    "thumb": "assets/projects/project-30-01-thumb.webp"
+    "thumb": "assets/projects/project-30-v2-01-thumb.webp"
   },
   {
     "id": "project-31",
@@ -1174,12 +1198,13 @@ window.VISION_PROJECTS = [
     },
     "category": "events",
     "images": [
-      "assets/projects/project-31-01.webp",
-      "assets/projects/project-31-02.webp",
-      "assets/projects/project-31-03.webp",
-      "assets/projects/project-31-04.webp",
-      "assets/projects/project-31-05.webp",
-      "assets/projects/project-31-06.webp"
+      "assets/projects/project-31-v2-01.webp",
+      "assets/projects/project-31-v2-02.webp",
+      "assets/projects/project-31-v2-03.webp",
+      "assets/projects/project-31-v2-04.webp",
+      "assets/projects/project-31-v2-05.webp",
+      "assets/projects/project-31-v2-06.webp",
+      "assets/projects/project-31-v2-07.webp"
     ],
     "services": [
       {
@@ -1200,7 +1225,7 @@ window.VISION_PROJECTS = [
       }
     ],
     "videos": [],
-    "thumb": "assets/projects/project-31-01-thumb.webp"
+    "thumb": "assets/projects/project-31-v2-01-thumb.webp"
   },
   {
     "id": "project-32",
@@ -1214,12 +1239,12 @@ window.VISION_PROJECTS = [
     },
     "category": "events",
     "images": [
-      "assets/projects/project-32-01.webp",
-      "assets/projects/project-32-02.webp",
-      "assets/projects/project-32-03.webp",
-      "assets/projects/project-32-04.webp",
-      "assets/projects/project-32-05.webp",
-      "assets/projects/project-32-06.webp"
+      "assets/projects/project-32-v2-01.webp",
+      "assets/projects/project-32-v2-02.webp",
+      "assets/projects/project-32-v2-03.webp",
+      "assets/projects/project-32-v2-04.webp",
+      "assets/projects/project-32-v2-05.webp",
+      "assets/projects/project-32-v2-06.webp"
     ],
     "services": [
       {
@@ -1240,7 +1265,7 @@ window.VISION_PROJECTS = [
       }
     ],
     "videos": [],
-    "thumb": "assets/projects/project-32-01-thumb.webp"
+    "thumb": "assets/projects/project-32-v2-01-thumb.webp"
   },
   {
     "id": "project-33",
@@ -1254,12 +1279,16 @@ window.VISION_PROJECTS = [
     },
     "category": "exhibitions",
     "images": [
-      "assets/projects/project-33-01.webp",
-      "assets/projects/project-33-02.webp",
-      "assets/projects/project-33-03.webp",
-      "assets/projects/project-33-04.webp",
-      "assets/projects/project-33-05.webp",
-      "assets/projects/project-33-06.webp"
+      "assets/projects/project-33-v2-01.webp",
+      "assets/projects/project-33-v2-02.webp",
+      "assets/projects/project-33-v2-03.webp",
+      "assets/projects/project-33-v2-04.webp",
+      "assets/projects/project-33-v2-05.webp",
+      "assets/projects/project-33-v2-06.webp",
+      "assets/projects/project-33-v2-07.webp",
+      "assets/projects/project-33-v2-08.webp",
+      "assets/projects/project-33-v2-09.webp",
+      "assets/projects/project-33-v2-10.webp"
     ],
     "services": [
       {
@@ -1280,7 +1309,7 @@ window.VISION_PROJECTS = [
       }
     ],
     "videos": [],
-    "thumb": "assets/projects/project-33-01-thumb.webp"
+    "thumb": "assets/projects/project-33-v2-01-thumb.webp"
   },
   {
     "id": "project-34",
@@ -1294,12 +1323,12 @@ window.VISION_PROJECTS = [
     },
     "category": "events",
     "images": [
-      "assets/projects/project-34-01.webp",
-      "assets/projects/project-34-02.webp",
-      "assets/projects/project-34-03.webp",
-      "assets/projects/project-34-04.webp",
-      "assets/projects/project-34-05.webp",
-      "assets/projects/project-34-06.webp"
+      "assets/projects/project-34-v2-01.webp",
+      "assets/projects/project-34-v2-02.webp",
+      "assets/projects/project-34-v2-03.webp",
+      "assets/projects/project-34-v2-04.webp",
+      "assets/projects/project-34-v2-05.webp",
+      "assets/projects/project-34-v2-06.webp"
     ],
     "services": [
       {
@@ -1320,6 +1349,6 @@ window.VISION_PROJECTS = [
       }
     ],
     "videos": [],
-    "thumb": "assets/projects/project-34-01-thumb.webp"
+    "thumb": "assets/projects/project-34-v2-01-thumb.webp"
   }
 ];
