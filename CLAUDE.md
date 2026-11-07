@@ -51,6 +51,7 @@ js/motion.js          typewriter on the main h1 only
 js/nav.js             sticky header, active nav link, in-page links without #hash in the URL
 assets/brand|fonts|hero|services|team|clients|projects
 admin/                dashboard (vevents.sa/admin) — see "Dashboard" below
+docs/DASHBOARD-HANDOFF.md  how the dashboard works, to rebuild it on another site (not deployed)
 ```
 
 ## Dashboard (vevents.sa/admin)

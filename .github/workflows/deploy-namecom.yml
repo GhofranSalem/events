@@ -50,6 +50,7 @@ jobs:
             .github/**
             README.md
             CLAUDE.md
+            docs/**
             admin/users.php
 
       # The FTP server sometimes drops the connection; try once more before failing.
@@ -68,6 +69,7 @@ jobs:
             .github/**
             README.md
             CLAUDE.md
+            docs/**
             admin/users.php
 
       - name: FTP details not set yet
