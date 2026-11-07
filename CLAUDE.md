@@ -113,7 +113,7 @@ admin/                dashboard (vevents.sa/admin) — see "Dashboard" below
 6. رشا القرشي / Rasha Al Qurashi — مدير إدارة المشاريع / Project Management Director
 7. عمار خزعل / Ammar Khazaal — مدير فعاليات / Event Manager
 8. محمد أرقه دان / Mohamed Arkadan — مدير الصوت والإضاءة والمرئيات / AVL Manager
-9. عبدالملك السنيد / Abdulmalik Al Sneed — مشرف الخدمات اللوجستية / Logistics Supervisor
+9. عبد الملك آل سنيد / Abdulmalik Al Sneed — مشرف الخدمات اللوجستية / Logistics Supervisor
 10. محمود عادل / Mahmoud Adel — مصمم جرافيك / Graphic Artist
 11. غفران سالم / Ghofran Salim — مصمم ثلاثي الأبعاد أول / Senior 3D Visualizer
 
